@@ -1,0 +1,113 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Giftcard1
+{
+    public class gift
+    {
+        private long cardNo;
+        private double balance;
+        private Boolean active;
+        
+
+        public long Cardno
+        {
+            get { return cardNo; }
+            set { cardNo = value; }
+        }
+
+        public Boolean Active
+        {
+            get { return active; }
+            set { active = value; }
+        }
+
+        public double Balance
+        {
+            get { return balance; }
+        }
+        public gift(long no, Boolean active)
+        {
+            this.cardNo = no;
+            //this.balance = balance;
+            this.active = active;
+        }
+        public gift()
+        {
+            this.balance = 0;
+            this.active = true;
+        }
+
+        public void SwipeCard(double amt)
+        {
+            if(active==true && balance>amt)
+            {
+                 balance=balance-amt;
+            }
+            
+
+            else
+            {
+                Console.WriteLine("the account is not contains manimum balance");
+            }
+            Console.WriteLine("the available balance is {0}", balance);
+        }
+        public void RechargeCard(double amt)
+        {
+            if (active == true)
+            {
+                balance = balance + amt;
+            }
+            else
+            {
+                Console.WriteLine("the account is not active");
+            }
+        }
+        
+    }
+    
+
+        
+}
+
+
+        
+
+
+                                                       main function
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Giftcard1;
+
+namespace giftcard
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            gift g = new gift(545243535, true);
+            g.RechargeCard(2000);
+            g.SwipeCard(500);
+            g.SwipeCard(400);
+
+
+            Console.WriteLine("\n");
+            gift x = new gift();
+            x.RechargeCard(3000);
+            x.SwipeCard(500);
+            x.SwipeCard(2600);
+            
+            Console.ReadKey();
+
+
+
+        }
+    }
+}

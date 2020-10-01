@@ -1,0 +1,108 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace product
+{
+    public class products
+    {
+        private string productcode;
+        public string Productcode
+        {
+            get { return productcode; }
+            set { productcode = value; }
+        }
+        private string productname;
+        public string Productname
+        {
+            get { return productname; }
+            set { productname = value; }
+
+        }
+        private double productprice;
+        public double Productprice
+        {
+            get { return productprice; }
+            set { productprice = value; }
+
+        }
+        private char categorycode;
+        public char Categorycode
+        {
+            get { return categorycode; }
+            set { categorycode = value; }
+
+        }
+        private static int prodCounter = 100;
+
+        private string generateProductCode(char c)
+        {
+            int x= prodCounter + 1;
+            string y = x.ToString();
+            productcode = categorycode +y;
+            return productcode;
+        }
+         public products(string pname,double pprice,char c)
+        {
+            this.productcode = generateProductCode(c);
+            this.productname = pname;
+            this.productprice = pprice;
+            this.categorycode = c;
+        }
+        public products(string pname,double pprice)
+        {
+            this.productname = pname;
+            this.productprice = pprice;
+            this.categorycode = 'E';
+            this.productcode = generateProductCode(categorycode);
+        }
+
+        public void getProductDetails()
+        {
+            Console.WriteLine("Product Code--{0}", productcode);
+            Console.WriteLine("Product Name--{0}", productname);
+            Console.WriteLine("Product Price--{0}", productprice);
+            Console.WriteLine("category--{0}", categorycode);
+
+            Console.ReadKey();
+
+
+        }
+
+
+
+
+    }
+}
+
+
+
+                                                main function
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using product;
+
+namespace productAssignment
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            products p = new products("laptop", 45000.00, 'E');
+            p.getProductDetails();
+
+            products q = new products("tv", 65000.00);
+            q.getProductDetails();
+            Console.ReadKey();
+          
+        }
+    }
+}
+
