@@ -1,0 +1,110 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using cricket11;
+
+namespace Cricket
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("enter the target runs");
+            int target = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("enter current over");
+            int currentover = Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("enter current score");
+            int currentscore = Convert.ToInt32(Console.ReadLine());
+            OneDayCricket a = new OneDayCricket(currentover, currentscore, target);
+            double x= a.calcCurrentRunrate();
+            double b=a.calcReqdRunrate();
+            Console.WriteLine("the current run rate is {0}", +x);
+            Console.WriteLine("the required run rate is {0}", +b);
+            Console.ReadKey();
+            
+        }
+    }
+}
+
+                                 class library
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace cricket11
+{
+    public abstract class cricketex
+    {
+        protected int maxOvers;
+        protected int targetScore;
+        protected int currentOver;
+        protected int currentScore;
+
+        public int MaxOvers
+        {
+            get { return maxOvers; }
+        }
+        public int TargetScore
+        {
+            get { return targetScore; }
+        }
+
+        public int CurrentScore
+        {
+            get { return currentScore; }
+            set { currentScore = value; }
+        }
+
+        public int CurrentOver
+        {
+            get{ return currentOver;}
+            set { currentOver = value; }
+        }
+
+        
+
+        public abstract double calcCurrentRunrate();
+        public abstract double calcReqdRunrate();
+
+    }
+
+    public class OneDayCricket:cricketex
+    {
+        double currentrunrate,requiredrunrate;
+        public OneDayCricket(int crtOver,int crtScore,int target)
+        {
+            this.targetScore = target;
+            this.currentOver = crtOver;
+            this.currentScore = crtScore;
+            this.maxOvers = 50;
+        }
+        
+        
+       
+        public override double calcCurrentRunrate()
+        {
+            currentrunrate = currentScore / currentOver;
+            return currentrunrate;
+
+
+        }
+
+        public override double calcReqdRunrate()
+        {
+            int remainingruns = targetScore - currentScore;
+            int remainingover = maxOvers - currentOver;
+            requiredrunrate = remainingruns / remainingover;
+            return requiredrunrate;
+
+
+
+        }
+    }
+}

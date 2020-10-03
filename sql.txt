@@ -1,0 +1,125 @@
+create database assign
+use assign
+
+create table category(
+id int not null primary key identity(1,1),
+name varchar(64) not null,
+tax decimal)
+
+create table product (
+product_id int not null primary key identity(1,1),
+product_name varchar(64) not null,
+open_stock decimal not null,
+cur_stock decimal not null,
+sale_price decimal not null,
+cat_id int not null foreign key references category(id)
+)
+
+create table customer(
+cust_id int not null primary key identity(1,1),
+cust_name varchar(32) not null,
+cust_mbl varchar(15) not null,
+open_bal decimal not null default 0,
+is_active BIT not null constraint defa default ('true'))
+
+create table Saleshead(
+sale_inv_np int not null primary key identity(1,1),
+sales_date date not null,
+customer int not null foreign key references customer(cust_id),
+ctype char(100) 
+constraint check_1 check(ctype='credit' or ctype='paid'))
+
+create table salesdetails(
+sale_inv_no int not null foreign key references Saleshead(sale_inv_np),
+
+product_id int not null foreign key references product(product_id),
+qty decimal not null,
+rate decimal not null)
+
+
+
+insert into category values('women bags',12)
+insert into category values('men dresses',12)
+insert into category values('home essentials',12)
+insert into category values('soaps',12)
+insert into category values('electronic',12)
+
+update category
+set tax=40.5 where name='electronic'
+
+insert into customer values('ramya','4455665445',default,'true')
+insert into customer values('kumar','3988989445',500,'true')
+insert into customer values('ram','9987898667',default,'false')
+insert into customer values('roopa','8767654556',100,'true')
+insert into customer values('kavya','7878987898',800,'true')
+
+
+insert into product values('handbag',20,15,1000,1)
+insert into product values('vessels',50,45,750,3)
+insert into product values('shirt',20,15,700,2)
+insert into product values('santoor',40,35,30,4)
+insert into product values('wallet',20,15,200,1)
+insert into product values('samsung mbl',2,1,10000,5)
+insert into product values('headphone',15,14,2000,5)
+
+insert into Saleshead values('2020-09-25',2,'credit')
+insert into Saleshead values('2019-08-05',2,'paid')
+
+insert into Saleshead values('2020-04-25',1,'credit')
+
+insert into Saleshead values('2020-09-25',3,'credit')
+insert into Saleshead values('2020-02-17',3,'creit')
+
+insert into Saleshead values('2020-09-25',4,'credit')
+insert into Saleshead values('2020-06-25',4,'credit')
+
+update Saleshead 
+set ctype='paid' where sales_date='2020-02-17'
+
+
+insert into salesdetails values(1,2,3,200000)
+insert into salesdetails values(2,4,5,40000)
+insert into salesdetails values(4,2,8,2000)
+insert into salesdetails values(5,3,1,30000)
+insert into salesdetails values(3,2,9,400000)
+
+select * from salesdetails
+select * from product
+ select * from customer
+select * from category
+
+select p.product_name,p.cur_stock,c.name from product p,category c where p.cat_id=c.id
+
+select * from customer where is_active='true'
+
+select cust_name,open_bal from customer
+
+select sum(sd.qty) QTY from salesdetails sd,Saleshead sh where sales_date>'2020-06-01' and sales_date<'2020-07-01'
+
+select product_name,sum(qty) QTY from product p,salesdetails sd where sd.product_id=p.product_id
+group by product_name
+order by (QTY) DESC
+
+select product_name,sum(qty) QTY from product p,salesdetails sd where sd.product_id=p.product_id
+group by product_name
+order by (QTY) ASC
+
+
+select cust_name,open_bal from customer
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
