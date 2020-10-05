@@ -1,0 +1,149 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace queueoperation
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Queue<int> myqueue = new Queue<int>();
+            myqueue.Enqueue(2);
+            myqueue.Enqueue(4);
+            myqueue.Enqueue(6);
+            myqueue.Enqueue(8);
+            myqueue.Enqueue(10);
+            myqueue.Enqueue(12);
+            myqueue.Enqueue(14);
+            myqueue.Enqueue(16);
+            myqueue.Enqueue(18);
+            myqueue.Enqueue(20);
+
+            Console.WriteLine("the queue elements are");
+            foreach(int x in myqueue)
+            {
+                Console.Write(x + ",");
+            }
+            Console.WriteLine("\n");
+
+            Console.WriteLine("the number of elements before dequeue operation is {0} \n", myqueue.Count());
+
+            myqueue.Dequeue();
+            myqueue.Dequeue();
+            myqueue.Dequeue();
+            myqueue.Dequeue();
+            myqueue.Dequeue();
+            myqueue.Dequeue();
+            Console.WriteLine("6 dequeue operation");
+
+            Console.WriteLine("the elements after  6 dequeue operation");
+            
+            foreach (int x in myqueue)
+            {
+                Console.Write(x + ",");
+            }
+            Console.WriteLine();
+            Console.WriteLine("the number of elements after 6 dequeue operation is {0} \n", myqueue.Count());
+            myqueue.Enqueue(2);
+            myqueue.Enqueue(4);
+            myqueue.Enqueue(6);
+            myqueue.Enqueue(8);
+            myqueue.Enqueue(10);
+            myqueue.Enqueue(12);
+            myqueue.Dequeue();
+            myqueue.Dequeue();
+            myqueue.Dequeue();
+            myqueue.Dequeue();
+            myqueue.Dequeue();
+            Console.WriteLine();
+            Console.WriteLine("5 dequeue operation");
+            Console.WriteLine("the elements after  5 dequeue operation");
+
+            foreach (int x in myqueue)
+            {
+                Console.Write(x + ",");
+            }
+            Console.WriteLine("\n");
+            Console.WriteLine("the number of elements after 5 dequeue operation is {0} \n", myqueue.Count());
+
+            myqueue.Enqueue(2);
+            myqueue.Enqueue(4);
+            myqueue.Enqueue(6);
+            myqueue.Enqueue(8);
+            myqueue.Enqueue(10);
+            myqueue.Dequeue();
+            myqueue.Dequeue();
+            myqueue.Dequeue();
+            myqueue.Dequeue();
+            Console.WriteLine();
+            Console.WriteLine("4 dequeue operation");
+            Console.WriteLine("the elements after  4 dequeue operation");
+
+            foreach (int x in myqueue)
+            {
+                Console.Write(x + ",");
+            }
+            Console.WriteLine("\n");
+            Console.WriteLine("the number of elements after 4 dequeue operation is {0} \n", myqueue.Count());
+
+            myqueue.Enqueue(2);
+            myqueue.Enqueue(4);
+            myqueue.Enqueue(6);
+            myqueue.Enqueue(8);
+            myqueue.Dequeue();
+            myqueue.Dequeue();
+            myqueue.Dequeue();
+           
+            Console.WriteLine();
+            Console.WriteLine("3 dequeue operation");
+            Console.WriteLine("the elements after  3 dequeue operation");
+
+            foreach (int x in myqueue)
+            {
+                Console.Write(x + ",");
+            }
+            Console.WriteLine("\n");
+            Console.WriteLine("the number of elements after 3 dequeue operation is {0} \n", myqueue.Count());
+
+            myqueue.Enqueue(2);
+            myqueue.Enqueue(4);
+            myqueue.Enqueue(6); 
+            myqueue.Dequeue();
+            myqueue.Dequeue();
+            
+            Console.WriteLine();
+            Console.WriteLine("2 dequeue operation");
+            Console.WriteLine("the elements after  2 dequeue operation");
+
+            foreach (int x in myqueue)
+            {
+                Console.Write(x + ",");
+            }
+            Console.WriteLine("\n");
+            Console.WriteLine("the number of elements after 2 dequeue operation is {0} \n", myqueue.Count());
+
+            myqueue.Enqueue(2);
+            myqueue.Enqueue(4);
+            myqueue.Dequeue();
+
+            Console.WriteLine();
+            Console.WriteLine("1 dequeue operation");
+            Console.WriteLine("the elements after  1 dequeue operation");
+
+            foreach (int x in myqueue)
+            {
+                Console.Write(x + ",");
+            }
+            Console.WriteLine("\n");
+            Console.WriteLine("the number of elements after 1 dequeue operation is {0} \n", myqueue.Count());
+            Console.WriteLine(myqueue.Contains(3));
+            Console.WriteLine(myqueue.Contains(2));
+            Console.WriteLine(myqueue.Contains(20));
+            Console.ReadKey();
+
+        }
+    }
+}

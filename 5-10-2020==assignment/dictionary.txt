@@ -1,0 +1,127 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace dictionaryexample
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Dictionary<int, string> dict = new Dictionary<int, string>();
+            dict.Add(1, "bangalore");
+            dict.Add(2, "mumbai");
+            dict.Add(3, "pune");
+            dict.Add(4, "hyderabad");
+            dict.Add(5, "chennai");
+            dict.Add(6, "delhi");
+
+           
+            Console.WriteLine("the number of elements in the dictionary are {0} ", dict.Count());
+            //get dictionary elemnents by get and set procedure
+            
+            dict[7] = "kolkatta";
+            dict[8] = "Ahmedabad";
+            dict[9] = "noida";
+            dict[10] = "thiruvananthapuram";
+            foreach (KeyValuePair<int, string> item in dict)
+            {
+                Console.WriteLine("key={0},value={1}", item.Key, item.Value);
+            }
+            //the key 10 element is removed from the dictionary
+            Console.WriteLine( dict.Remove(10));
+            Console.WriteLine(dict.Remove(9));
+            Console.WriteLine(dict.Remove(8));
+            Console.WriteLine(dict.Remove(7));
+            Console.WriteLine(dict.Remove(6));
+            Console.WriteLine(dict.Remove(5));
+            Console.WriteLine("the number of elements after removing 6 dictionary are {0} ", dict.Count());
+
+            foreach (KeyValuePair<int, string> item in dict)
+            {
+                Console.WriteLine("key={0},value={1}", item.Key, item.Value);
+
+            }
+            dict.Add(5, "chennai");
+            dict.Add(6, "delhi");
+            dict[7] = "kolkatta";
+            dict[8] = "Ahmedabad";
+            dict[9] = "noida";
+            dict[10] = "thiruvananthapuram";
+            Console.WriteLine(dict.Remove(10));
+            Console.WriteLine(dict.Remove(9));
+            Console.WriteLine(dict.Remove(8));
+            Console.WriteLine(dict.Remove(7));
+            Console.WriteLine(dict.Remove(6));
+            
+            Console.WriteLine("the number of elements after removing 5 dictionary are {0} ", dict.Count());
+
+            foreach (KeyValuePair<int, string> item in dict)
+            {
+                Console.WriteLine("key={0},value={1}", item.Key, item.Value);
+
+            }
+
+            
+            dict.Add(6, "delhi");
+            dict[7] = "kolkatta";
+            dict[8] = "Ahmedabad";
+            dict[9] = "noida";
+            dict[10] = "thiruvananthapuram";
+            Console.WriteLine(dict.Remove(10));
+            Console.WriteLine(dict.Remove(9));
+            Console.WriteLine(dict.Remove(8));
+            Console.WriteLine(dict.Remove(7));
+            
+
+            Console.WriteLine("the number of elements after removing 4 dictionary are {0} ", dict.Count());
+
+            foreach (KeyValuePair<int, string> item in dict)
+            {
+                Console.WriteLine("key={0},value={1}", item.Key, item.Value);
+
+            }
+
+            
+            dict[7] = "kolkatta";
+            dict[8] = "Ahmedabad";
+            dict[9] = "noida";
+            dict[10] = "thiruvananthapuram";
+            Console.WriteLine(dict.Remove(10));
+            Console.WriteLine(dict.Remove(9));
+            Console.WriteLine(dict.Remove(8));
+            
+
+            Console.WriteLine("the number of elements after removing 3 dictionary are {0} ", dict.Count());
+
+            foreach (KeyValuePair<int, string> item in dict)
+            {
+                Console.WriteLine("key={0},value={1}", item.Key, item.Value);
+
+            }
+
+            
+            dict[8] = "Ahmedabad";
+            dict[9] = "noida";
+            dict[10] = "thiruvananthapuram";
+            Console.WriteLine(dict.Remove(10));
+            Console.WriteLine(dict.Remove(9));
+            
+
+            Console.WriteLine("the number of elements after removing 2 dictionary are {0} ", dict.Count());
+
+            foreach (KeyValuePair<int, string> item in dict)
+            {
+                Console.WriteLine("key={0},value={1}", item.Key, item.Value);
+
+            }
+
+
+            Console.ReadKey();
+
+
+        }
+    }
+}

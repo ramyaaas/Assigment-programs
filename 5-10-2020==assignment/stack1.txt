@@ -1,0 +1,136 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace stackex
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Stack<int> x = new Stack<int>();
+            x.Push(2);
+            x.Push(4);
+            x.Push(6);
+            x.Push(8);
+            x.Push(10);
+            x.Push(12);
+            x.Push(14);
+            x.Push(16);
+            x.Push(18);
+            x.Push(20);
+            Console.WriteLine("the topmost element of the stack before popping  is {0} ", x.Peek());
+            Console.WriteLine("the total elements of the stack before popping  is {0} ", x.Count());
+            Console.WriteLine("the elemnets of the stack are");
+            foreach (var i in x)
+            {
+                Console.Write(i + ",");
+            }
+            Console.WriteLine();
+            x.Pop();
+            x.Pop();
+            x.Pop();
+            x.Pop();
+            x.Pop();
+            x.Pop();
+
+            Console.WriteLine("the topmost element of the stack  after 6 popping is {0} ", x.Peek());
+            Console.WriteLine("the total elements of the stack  after 6 popping is {0} ", x.Count());
+            Console.WriteLine(" the elements of the stack after 6 pop operations");
+
+            foreach (int z in x)
+            {
+                Console.Write(z + ",");
+            }
+            Console.WriteLine();
+           
+            x.Push(10);
+            x.Push(12);
+            x.Push(14);
+            x.Push(16);
+            x.Push(18);
+            x.Push(20);
+            x.Pop();
+            x.Pop();
+            x.Pop();
+            x.Pop();
+            x.Pop();
+
+            Console.WriteLine("the topmost element of the stack  after 5 popping is {0} ", x.Peek());
+            Console.WriteLine("the total elements of the stack  after 5 popping is {0} ", x.Count());
+            Console.WriteLine(" the elements of the stack after 5 pop operations");
+
+            foreach (int z in x)
+            {
+                Console.Write(z + ",");
+            }
+            Console.WriteLine();
+            
+            x.Push(12);
+            x.Push(14);
+            x.Push(16);
+            x.Push(18);
+            x.Push(20;)
+            x.Pop();
+            x.Pop();
+            x.Pop();
+            x.Pop();
+  
+
+            Console.WriteLine("the topmost element of the stack  after 4 popping is {0} ", x.Peek());
+            Console.WriteLine("the total elements of the stack  after 4 popping is {0} ", x.Count());
+            Console.WriteLine(" the elements of the stack after 4 pop operations");
+
+            foreach (int z in x)
+            {
+                Console.Write(z + ",");
+            }
+            Console.WriteLine();
+            
+            x.Push(14);
+            x.Push(16);
+            x.Push(18);
+            x.Push(20);
+            x.Pop();
+            x.Pop();
+            x.Pop();
+            
+
+            Console.WriteLine("the topmost element of the stack  after 3 popping is {0} ", x.Peek());
+            Console.WriteLine("the total elements of the stack  after 3 popping is {0} ", x.Count());
+            Console.WriteLine(" the elements of the stack after 3 pop operations");
+
+            foreach (int z in x)
+            {
+                Console.Write(z + ",");
+            }
+
+            Console.WriteLine();
+
+           
+            x.Push(16);
+            x.Push(18);
+            x.Push(20);
+            x.Pop();
+            x.Pop();
+            
+
+            Console.WriteLine("the topmost element of the stack  after 2 popping is {0} ", x.Peek());
+            Console.WriteLine("the total elements of the stack  after 2 popping is {0} ", x.Count());
+            Console.WriteLine(" the elements of the stack after 2 pop operations");
+
+            foreach (int z in x)
+            {
+                Console.Write(z + ",");
+            }
+
+
+
+            Console.WriteLine(x.Contains(11));
+            Console.WriteLine(x.Contains(8));
+            Console.ReadKey();
+        }
+    }
+}
