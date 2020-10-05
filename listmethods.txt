@@ -1,0 +1,65 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace listmethods1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var array = new int[3];
+            array[0] = 7;
+            array[1] = 6;
+            array[2] = 7;
+
+            List<int> list = new List<int>();
+            list.AddRange(array);
+            Console.WriteLine("the first list is");
+
+            foreach (int value in list)
+            {
+                Console.WriteLine("VALUE: {0}", value);
+            }
+            var list2 = new List<int>();
+            list2.Add(1);
+            list2.Add(2);
+            list2.Add(5);
+            list2.Add(6);
+
+            var arr = new int[3];
+            arr[0] = 7;
+            arr[1] = 6;
+            arr[2] = 7;
+            list2.InsertRange(1, array);
+            Console.WriteLine("the second list is");
+
+            foreach (int value in list2)
+            {
+                Console.WriteLine("VALUE: {0}", value);
+            }
+            list2.Sort();
+            Console.WriteLine("the elements after sorting is");
+            foreach(int i in list2)
+            {
+                Console.Write(i + ",");
+            }
+            Console.WriteLine();
+            list2.BinarySearch(2);
+            list.Reverse();
+            foreach (int i in list2)
+            {
+                Console.Write(i + ",");
+            }
+            Console.WriteLine();
+            List<string> list3 = new List<string>();
+
+
+
+
+            Console.ReadKey();
+        }
+    }
+}

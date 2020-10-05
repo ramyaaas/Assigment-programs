@@ -1,0 +1,50 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace listmethods
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<int> numbers = new List <int>();
+            numbers.Add(1);
+            numbers.Add(2);
+            numbers.Add(3);
+            numbers.Add(4);
+            numbers.Add(5);
+            numbers.Insert(5, 6);
+            numbers.Insert(6, 7);
+            numbers.Insert(7, 8);
+
+            Console.WriteLine("the elements of the list are");
+            foreach(int x in numbers)
+            {
+                Console.Write(x + ",");
+            }
+            Console.WriteLine();
+
+            Console.WriteLine("the 1st index of the list is:" + numbers[0]);
+            Console.WriteLine("the 2nd index of the list is:" + numbers[1]);
+            Console.WriteLine("the 3rd index of the list is:" + numbers[2]);
+            Console.WriteLine("the 4th index of the list is:" + numbers[3]);
+            Console.WriteLine("the 5th index of the list is:" + numbers[4]);
+            Console.WriteLine("the 6th index of the list is:" + numbers[5]);
+            Console.WriteLine("the 7th index of the list is:" + numbers[6]);
+            Console.WriteLine("the 8th index of the list is:" + numbers[7]);
+
+            Console.WriteLine(numbers.Remove(4));
+            Console.WriteLine(numbers.Remove(7));
+
+            Console.WriteLine(numbers.Contains(4));
+            Console.WriteLine(numbers.Contains(5));
+
+            Console.ReadKey();
+
+
+        }
+    }
+}
