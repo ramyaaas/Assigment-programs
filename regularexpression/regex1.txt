@@ -1,0 +1,30 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text.RegularExpressions;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace regularexpre2
+{
+    class Program
+    {
+        /// Test string using Regex.IsMatch static method.
+        static bool IsValid(string value)
+        {
+            return Regex.IsMatch(value, @"^[a-zA-Z0-9]*$");
+        }
+
+        static void Main(string[] args)
+        {
+            // Test the strings with the IsValid method.
+            Console.WriteLine(IsValid("dotnetperls0123"));
+            Console.WriteLine(IsValid("Csharptrainingls--"));
+            Console.WriteLine(IsValid("Csharptrainingls"));
+            Console.WriteLine(IsValid(":-)"));
+            // Console.WriteLine(IsValid(null)); // Throws an exception
+            Console.ReadKey();
+        }
+    }
+    
+}

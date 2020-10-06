@@ -1,0 +1,60 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Text.RegularExpressions;
+using System.Diagnostics;
+
+namespace regex2
+{
+    class Program
+    {
+        static int Version1()
+        {
+            string value = "This is a simple 5string5 for Regex.";
+            return Regex.Match(value, @"5\w+5").Length;
+        }
+
+        static Regex _wordRegex = new Regex(@"5\w+5", RegexOptions.Compiled);
+
+        static int Version2()
+        {
+            string value = "This is a simple 5string5 for Regex.";
+            return _wordRegex.Match(value).Length;
+        }
+
+        const int _max = 1000000;
+        static void Main(string[] args)
+        {
+
+            var s1 = Stopwatch.StartNew();
+            for (int i = 0; i < _max; i++)
+            {
+                if (Version1() != 8)
+                {
+                    return;
+                }
+            }
+            s1.Stop();
+            // Version 2: use Regex.Match, compiled Regex, instance Regex.
+            var s2 = Stopwatch.StartNew();
+            for (int i = 0; i < _max; i++)
+            {
+                if (Version2() != 8)
+                {
+                    return;
+                }
+            }
+            s2.Stop();
+            Console.WriteLine(((double)(s1.Elapsed.TotalMilliseconds * 1000000) /
+                _max).ToString("0.00 ns"));
+            Console.WriteLine(((double)(s2.Elapsed.TotalMilliseconds * 1000000) /
+                _max).ToString("0.00 ns"));
+            Console.ReadKey();
+        }
+
+
+    }
+    
+}

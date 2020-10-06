@@ -1,0 +1,127 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
+
+namespace Regexexample
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string input = "/csharp/trainingbatch-1.class";
+
+            Match match = Regex.Match(input, @"csharp/([A-Za-z0-9\-]+)\.class$", RegexOptions.IgnoreCase);
+
+            if (match.Success)
+            {
+                string key = match.Groups[1].Value;
+                Console.WriteLine(key);
+            }
+            Console.WriteLine();
+            Console.WriteLine("********checking whether starting and ening string matches ore not**********");
+
+            string test = "zzaaaaaayy";
+            if (Regex.IsMatch(test, "^zz"))
+            {
+                Console.WriteLine("START MATCHES");
+            }
+
+            if (Regex.IsMatch(test, "yy$"))
+            {
+                Console.WriteLine("END MATCHES");
+            }
+            Console.WriteLine();
+            Console.WriteLine("*********getting the required pattern in the entire string************");
+            string value = "40 AND 50 And 60 are the digits divided by 10";
+            Match mat = Regex.Match(value, @"\d+");
+            for (int i = 0; i < value.Length; i++)
+                if (mat.Success)
+                {
+                    Console.WriteLine(mat.Value);
+                    mat = mat.NextMatch();
+                }
+
+            Console.WriteLine();
+            Console.WriteLine("**********ecample for replacing the particular pattern by another patern*********");
+            Regex regex = new Regex(@"\d+");
+            string result = regex.Replace("ramya 5675 4563", "gnana");
+            Console.WriteLine("RESULT: {0}", result);
+
+            Console.WriteLine();
+            Console.WriteLine("***********greedy and non greedy *************");
+            string test1 = "/mycomputer/sample/a.txt";
+            // Version 1: use lazy (or non-greedy) metacharacter.
+            var result1 = Regex.Match(test1, "^/.*?/");
+            if (result1.Success)
+            {
+                Console.WriteLine("NON-GREEDY: {0}", result1.Value);
+            }
+            // Version 2: default Regex.
+            var result2 = Regex.Match(test1, "^/.*/");
+            if (result2.Success)
+            {
+                Console.WriteLine("GREEDY:     {0}", result2.Value);
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("************************using static regex**********************");
+            string inp = "/content/alternate-1.aspx";
+
+            // This calls the static method specified.
+            Console.WriteLine(RegexUtil.MatchKey(inp));
+            
+            Console.WriteLine("*********************length value index methods************************");
+            Match m = Regex.Match("12345 Ayfhdsddsy", @"A.*y");
+            if (m.Success)
+            {
+                Console.WriteLine("Value  = " + m.Value);
+                Console.WriteLine("Length = " + m.Length);
+                Console.WriteLine("Index  = " + m.Index);
+            }
+
+            Console.WriteLine();
+            Console.WriteLine("***************ignoring case***************");
+            const string val = "RAmya";
+            // ... This ignores the case of the "TE" characters.
+            if (Regex.IsMatch(val, "raM..", RegexOptions.IgnoreCase))
+            {
+                Console.WriteLine(true);
+            }
+
+
+            Console.ReadKey();
+
+
+        }
+    }
+    
+
+    static class RegexUtil
+    {
+        static Regex _regex = new Regex(@"/content/([a-z0-9\-]+)\.aspx$");
+
+        static public string MatchKey(string input)
+        {
+            Match match = _regex.Match(input.ToLower());
+            if (match.Success)
+            {
+                return match.Groups[1].Value;
+            }
+            else
+            {
+                return null;
+            }
+        }
+    }
+}
+
+
+    
+
+    
+        
+    
+
