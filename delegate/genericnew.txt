@@ -1,0 +1,34 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace generic_new
+{
+    public delegate void sample<T>(T param );
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            sample<string> s = Teststring;
+            s("good morning");
+            sample<int> i = TestInteger;
+            i(40);
+            Console.ReadKey();
+
+
+
+        }
+        public static void Teststring(string a)
+        {
+            Console.WriteLine("the teststring method takes " + a + "as arguement");
+        }
+        public static void TestInteger(int a)
+        {
+            Console.WriteLine("the testinteger method takes " + a + "as arguement");
+        }
+    }
+
+    
+}

@@ -1,0 +1,44 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace delegatenew
+{
+    public delegate void MyDelegate(int msg);
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            MyDelegate del = ClassA.MethodA;
+            InvokeDelegate(del);
+
+            del = ClassB.MethodB;
+            InvokeDelegate(del);
+
+            del = (int msg) => Console.WriteLine("Called lambda expression: " + msg);
+            InvokeDelegate(del);
+            Console.ReadKey();
+        }
+        static void InvokeDelegate(MyDelegate del) // MyDelegate type parameter
+        {
+            del(49);
+        }
+    }
+    class ClassA
+    {
+        public static void MethodA(int a)
+        {
+            Console.WriteLine("Called ClassA.MethodA() with parameter: " +a);
+        }
+    }
+
+    class ClassB
+    {
+        public static void MethodB(int  b)
+        {
+            Console.WriteLine("Called ClassB.MethodB() with parameter: " +b);
+        }
+    }
+}

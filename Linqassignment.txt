@@ -1,0 +1,103 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Linqassignment
+{
+    class employee
+    {
+        public string employee_name { get; set; }
+        public int employee_id { get; set; }
+        public long employee_salary { get; set; }
+        public string employee_designation { get; set; }
+
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            List<employee> employeelist = new List<employee>()
+            {
+                new employee(){employee_name="ramya",employee_id=101,employee_salary=25000,employee_designation="software engineer"},
+                new employee(){employee_name="ram",employee_id=102,employee_salary=45000,employee_designation="HR"},
+                new employee(){employee_name="kavya",employee_id=103,employee_salary=30000,employee_designation="software engineer"},
+                new employee(){employee_name="rohit",employee_id=104,employee_salary=43000,employee_designation="technician"},
+                new employee(){employee_name="virat",employee_id=105,employee_salary=52000,employee_designation="manager"},
+                new employee(){employee_name="gnana",employee_id=106,employee_salary=90000,employee_designation="HR"}
+
+            };
+
+            var employ1 = employeelist.Where(e => e.employee_id > 101).Select(e => e).Where(es => es.employee_salary > 40000).Select(e => e.employee_name);
+            Console.WriteLine("*******the name of the students whose salary is greater than 40000 and employee id is greater than 101******");
+            foreach(var i in employ1)
+            {
+                Console.WriteLine(i);
+            }
+
+            var employ2 = employeelist.Where(e => e.employee_id < 103).Select(e => e).Where(es => es.employee_salary < 40000).Select(e => e.employee_name);
+            Console.WriteLine("*******the name of the students whose salary is lesser than 40000 and employee id is lesser than 103******");
+            foreach (var i in employ2)
+            {
+                Console.WriteLine(i);
+            }
+            Console.WriteLine("******************************************");
+            var employeegroup = from s in employeelist
+                               group s by s.employee_id into b
+                               orderby b.Key
+                               select new { b.Key, b };
+            foreach (var group in employeegroup)
+            {
+                Console.WriteLine("employeegroup:::{0}", group.Key);
+            }
+            Console.WriteLine("******************************************");
+
+            var employeegroup1 = from s in employeelist
+                                 where s.employee_id > 102
+                                 where s.employee_salary < 40000
+                                 where s.employee_designation.StartsWith("H")
+                                 group s by s.employee_id into sb
+                                 orderby sb.Key
+                                 select new { sb.Key, sb };
+            foreach (var group in employeegroup1)
+            {
+                Console.WriteLine("employeeid:::{0}", group.Key);
+            }
+
+            Console.WriteLine("******************************************");
+            var employeegroup2 = from s in employeelist
+                                 where s.employee_designation.StartsWith("HR")
+                                 where s.employee_salary < 60000
+                                 where s.employee_id < 103
+                                 group s by s.employee_id into sb
+                                 orderby sb.Key
+                                 select new { sb.Key, sb };
+            foreach (var group in employeegroup2)
+            {
+                Console.WriteLine("employeeid:::{0}", group.Key);
+            }
+            Console.WriteLine("******************************************");
+
+            var employ4 = employeelist.Where(e => e.employee_name.StartsWith("ramya")).Select(e => e).Where(es => es.employee_salary < 40000).Select(e => e.employee_name);
+            
+            foreach (var i in employ4)
+            {
+                Console.WriteLine(i);
+            }
+            Console.WriteLine("******************************************");
+
+            var employ5 = employeelist.Where(e => e.employee_designation.StartsWith("software")).Select(e => e).Where(es => es.employee_salary < 40000).Select(e => e.employee_name);
+
+            foreach (var i in employ5)
+            {
+                Console.WriteLine(i);
+            }
+            Console.WriteLine("******************************************");
+
+
+
+            Console.ReadKey();
+        }
+    }
+}
