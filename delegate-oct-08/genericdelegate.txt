@@ -1,0 +1,65 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace genericdelegateassignment
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Func<string, string, string> obj1 = (s1, s2) =>
+                {
+                    return s1 + s2;
+                };
+            Console.WriteLine(obj1("latha", "reddy"));
+
+            Func<int, int> obj2 = x =>
+               {
+                   int rem, sum = 0;
+                   while (x != 0)
+                   {
+                       rem = x % 10;
+                       sum = sum + rem;
+                       x = x / 10;
+                   }
+                   return sum;
+               };
+            Console.WriteLine(obj2(647564));
+
+            Action<string> obj3 = str => Console.WriteLine(str.Length);
+            obj3("dasdadasdasd");
+            Action<int> obj4 = x => Console.WriteLine(x * x);
+            obj4(100);
+
+            Predicate<int> obj5 = n =>
+              {
+                  if (n % 2 == 0)
+                  {
+                      return false;
+                  }
+                  else
+                  {
+                      return true;
+                  }
+
+              };
+            Console.WriteLine(obj5(43434));
+            Predicate<string> obj6 = s =>
+              {
+                  if (s.Length == 0)
+                  {
+                      return true;
+                  }
+                  else
+                  {
+                      return false;
+                  }
+              };
+            Console.WriteLine(obj6("lakshmikanth"));
+            Console.ReadKey();
+        }
+    }
+}

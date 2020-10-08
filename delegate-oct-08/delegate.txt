@@ -1,0 +1,85 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Delegategeneric
+{
+    public delegate string Mydelegate1(string str, string str1);
+    public delegate int Mydelegate2(int a);
+    public delegate void Mydelegate3(string str);
+    public delegate void Mydelegate4(int a);
+    public delegate bool Mydelegate5(string s);
+    public delegate bool Mydelegate6(int x);
+    class Program
+    {
+        public static string cancat(string s,string s1)
+        {
+            return s + s1;
+        }
+        public static int sumofdigits(int number)
+        {
+            int rem, sum = 0;
+            while(number!=0)
+            {
+                rem = number % 10;
+                sum = sum + rem;
+                number = number / 10;
+            }
+            return sum;
+        }
+
+        public static void square(int number)
+        {
+            Console.WriteLine(number * number);
+        }
+        public static void stringlen(string str)
+        {
+            Console.WriteLine(str.Length);
+        }
+        public static bool isodd(int number)
+        {
+            if(number%2==0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        public static bool isempty(string str)
+        {
+            if(str.Length==0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
+
+        static void Main(string[] args)
+        {
+            Mydelegate1 obj1 = new Mydelegate1(cancat);
+            Mydelegate2 obj2 = new Mydelegate2(sumofdigits);
+            Mydelegate3 obj3 = new Mydelegate3(stringlen);
+            Mydelegate4 obj4 = new Mydelegate4(square);
+            Mydelegate5 obj5 = new Mydelegate5(isempty);
+            Mydelegate6 obj6 = new Mydelegate6(isodd);
+
+            Console.WriteLine(obj1("ramya", "pm"));
+            Console.WriteLine(obj2(456));
+            obj3("ramya");
+            obj4(45);
+            Console.WriteLine(obj5("ram"));
+            Console.WriteLine(obj6(6665));
+            Console.ReadKey();
+        }
+    }
+}

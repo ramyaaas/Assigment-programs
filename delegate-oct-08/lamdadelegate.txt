@@ -1,0 +1,72 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace lamdadelgateexample
+{
+    public delegate string Mydelegate1(string str, string str1);
+    public delegate int Mydelegate2(int a);
+    public delegate void Mydelegate3(string str);
+    public delegate void Mydelegate4(int a);
+    public delegate bool Mydelegate5(string s);
+    public delegate bool Mydelegate6(int x);
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Mydelegate1 obj1 = (str, str1) =>
+              {
+                  return str + str1;
+              };
+            string result = obj1("virat", "kohli");
+            Console.WriteLine(result);
+
+            Mydelegate2 obj2=number=>
+            {
+                int rem, sum = 0;
+                while (number != 0)
+                {
+                    rem = number % 10;
+                    sum = sum + rem;
+                    number = number / 10;
+                }
+                return sum;
+            };
+            Console.WriteLine(obj2(45645));
+
+            Mydelegate3 obj3 = str => Console.WriteLine(str.Length);
+            obj3("good morning");
+            Mydelegate4 obj4 = number => Console.WriteLine(number * number);
+            obj4(56);
+            Mydelegate5 obj5 = str =>
+              {
+                  if (str.Length == 0)
+                  {
+                      return true;
+                  }
+                  else
+                  {
+                      return false;
+                  }
+              };
+            Console.WriteLine(obj5(""));
+            Mydelegate6 obj6 = number =>
+              {
+                  if (number % 2 == 0)
+                  {
+                      return false;
+                  }
+                  else
+                  {
+                      return true;
+                  }
+              };
+            Console.WriteLine(obj6(5867));
+            Console.ReadKey();
+        }
+
+        
+    }
+}
