@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>calculator</title>
+    <style>
+        #hid {
+            background-color:darkorange;
+            align-content: center;
+            font-family: Calibri, Helvetica, sans-serif;
+            text-align: center;
+        }
+        .container {
+            padding: 25px;
+            background-color: lightblue;
+        }
+        form {
+            border: 3px solid #f1f1f1;
+            margin-left:350px;
+            margin-right:350px;
+            margin-top:100px;
+            margin-bottom:200px;
+        }
+        #hid2{
+            margin-top:100px;
+            text-align:center;
+            color:darkblue;
+        }
+        input[type=text] {
+            width: 50%;
+            margin: 8px 0;
+            padding: 12px 20px;
+            display: inline-block;
+            border: 2px solid green;
+            box-sizing: border-box;
+        }
+
+    </style>
+</head>
+<body id="hid">
+    <script type="text/javascript">
+
+        function add() {
+            var a = parseFloat(document.getElementById('n1').value);
+            var b = parseFloat(document.getElementById('n2').value);
+            document.getElementById('result').value = a + b;
+        }
+        function sub() {
+            var a = parseFloat(document.getElementById('n1').value);
+            var b = parseFloat(document.getElementById('n2').value);
+            document.getElementById('result').value = a - b;
+        }
+        function mul() {
+            var a = parseFloat(document.getElementById('n1').value);
+            var b = parseFloat(document.getElementById('n2').value);
+            document.getElementById('result').value = a * b;
+        }
+        function div() {
+            var a = parseFloat(document.getElementById('n1').value);
+            var b = parseFloat(document.getElementById('n2').value);
+            document.getElementById('result').value = a/b;
+        }
+
+    </script>
+    <h1 id="hid2">A SIMPLE CALCULATOR</h1>
+    <form action="" name="calculator">
+        <div class="container">
+            <label>number1</label>
+            <input type="text" name="num1" value="" id="n1" /><br />
+            <label>number2</label>
+            <input type="text" name="num2" value="" id="n2" />
+            <br />
+            <input type="button" value="Addition" onclick="add()" />
+            <input type="button" value="Substraction" onclick="sub()" />
+            <input type="button" value="Multiplication" onclick="mul()" />
+            <input type="button" value="Division" onclick="div()" /><br />
+            <label>Result</label>
+            <input type="text" value="" id="result" />
+        </div>
+    </form>
+
+
+</body>
+</html>

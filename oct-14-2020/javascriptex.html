@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <script type="text/javascript">
+        var a = 5;
+        var b = 5;
+        document.write(a == b);
+        document.write(a === b);
+
+        var a = 10;
+        var name = "ramya";
+        var salary = 33454.00;
+        document.write(a+" "+typeof(a)+"<br>"); 
+
+        document.write(name+" "+typeof(name)+"<br>");
+        document.write(salary+" "+typeof(salary)+"<br>");
+
+        function getname(){
+            //var name =document.getElementById('n1').value
+            //document.write("your name is" + name);
+            var name1 = document.calculate.n1.value;
+            alert("your name is " + name1);
+        }
+    </script>
+    <form  action=""name="calculate" onsubmit="getname()">
+        <input type="text" name="n1"value="sam" id="n1" />
+        <input type="submit" value="submit" />
+    </form>
+
+</body>
+</html>

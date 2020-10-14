@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <script type="text/javascript">
+
+        function tables() {
+            var x = document.getElementById('n1').value;
+            var num = document.getElementById('n2').value;
+            var i = 1;
+            for (i = 1; i <= num; i++) {
+                document.write(x+"*"+i+"="+x*i+"<br>")
+            }
+        }
+
+    </script>
+    <form action="" name="calculate" onsubmit="tables()">
+        <input type="text" name="n" value="" id="n1" /><br />
+        <input type="text" name="n1" value="" id="n2" /><br />
+        <input type="submit" value="submit" />
+    </form>
+
+</body>
+</html>

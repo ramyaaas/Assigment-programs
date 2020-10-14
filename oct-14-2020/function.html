@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>javascript example</title>
+    <style>
+        body{
+            background-color:green;
+        }
+
+    </style>
+</head>
+<body id="body1">
+    <script type="text/javascript">
+        function f1() {
+            alert("hi younhave clicked the button");
+        }
+        function f2() {
+            document.getElementById('hid').innerHTML = "hi my name is gnana";
+        }
+        function f3() {
+            document.getElementById('img').style.width = '300px'
+        }
+        function f4() {
+            document.getElementById('body1').style.backgroundColor = 'red';
+        }
+        function f5() {
+            documents.getElementById('hid1').style.display = 'none';
+        }
+
+    </script>
+    <h1 id="hid">my name is ramya</h1>
+    <h1 id="hid1">my name is ramya</h1>
+    <img src="sample1.jpg" id="img" style="width:500px ;height:500px" />
+    <button onclick="f1()">click me</button>
+    <button onclick="f2()">click me to change the content</button>
+    <button onclick="f3()">click  me to change the image size</button>
+    <button onclick="f4()">click me to change body color</button>
+    <button onclick="f5()">click me to hide the text</button>
+</body>
+</html>
