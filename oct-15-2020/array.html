@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <script type="text/javascript">
+        var names = new Array();
+
+
+        var studentmarks = [78, 89, 67, 78, 90, 65]
+        var max = 0, min=100 , average = 0, total = 0;
+        for (var i = 0; i < studentmarks.length; i++) {
+            if (max < studentmarks[i]) {
+                max = studentmarks[i];
+            }
+        }
+        for (var i = 0; i < studentmarks.length; i++) {
+            if (min > studentmarks[i]) {
+                min = studentmarks[i];
+            }
+        }
+        for (var i = 0; i < studentmarks.length; i++) {
+            total = total + studentmarks[i];
+        }
+        average = total / 6;
+        document.write("the maximum marks is &nbsp" + max + "<br>");
+        document.write("the manimum marks is &nbsp" + min + "<br>");
+        document.write("the total marks is &nbsp" + total + "<br>");
+        document.write("the average marks is &nbsp" + average + "<br>");
+
+        
+
+
+    </script>
+
+</body>
+</html>

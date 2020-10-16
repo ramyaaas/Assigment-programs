@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <script type="text/javascript">
+        employee1 = { id:2, name:"ramya", dept:"cse",salary:"45000",designation:"software developer" };
+        document.write(employee1.id+"<br>");
+        document.write(employee1.name+"<br>");
+        document.write(employee1.dept + "<br>");
+        document.write(employee1.salary + "<br>");
+        document.write(employee1.designation + "<br>");
+
+        document.write("=============================<br>");
+
+        var employee = new Object();
+        employee.id = 100;
+        employee.name = "ramya";
+        employee.dept = "ec";
+        employee.salary = "34555.00";
+        employee.designation = "hr";
+        document.write(employee.id + "<br>");
+        document.write(employee.name + "<br>");
+        document.write(employee.dept + "<br>");
+        document.write(employee.salary + "<br>");
+        document.write(employee.designation + "<br>");
+
+        document.write("===============================<br>");
+
+        function emp(id, name,dept,salary,designation) {
+            this.id = id;
+            this.name = name;
+            this.dept = dept;
+            this.salary = salary;
+            this.designation = designation;
+        }
+        emp1 = new emp(12, "gnana","cse",34567.00,"technician");
+        document.write(emp1.id + "<br>");
+        document.write(emp1.name + "<br>");
+        document.write(emp1.dept + "<br>");
+        document.write(emp1.salary+ "<br>");
+        document.write(emp1.designation + "<br>");
+
+
+    </script>
+
+
+</body>
+</html>

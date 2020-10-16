@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body style="background-color:lightblue">
+    <script type="text/javascript">
+        function result() {
+            var score = 0;
+            if (document.getElementById('correct1').checked) {
+                score++;
+            }
+            if (document.getElementById('correct2').checked) {
+                score++;
+            }
+            if (document.getElementById('correct3').checked) {
+                score++;
+            }
+            //alert("your score is" + score);
+            //var name = document.getElementById('demo').value;
+            document.write("score is &nbsp" + score);
+        }
+
+
+    </script>
+    <h1 style="text-align:center">Quiz begins</h1>
+    <form action="">
+        Q1.Which of the following type of variable is visible only within a function where it is defined?<br />
+        <input type="radio" name="question1" />global variable<br />
+        <input type="radio" name="question1" id="correct1" />local variable<br />
+        <input type="radio" name="question1" />both if the above<br />
+        <input type="radio" name="question1" />none of the above<br />
+
+
+        Q2.Which of the following function of String object returns a number indicating the Unicode value of the character at the given index?<br />
+        <input type="radio" name="question2" />charAt()<br />
+        <input type="radio" name="question2" id="correct2" />charCodeAt()<br />
+        <input type="radio" name="question2" />concat()<br />
+        <input type="radio" name="question2" />indexOf()<br />
+
+        Q3.Which built-in method sorts the elements of an array?<br />
+        <input type="radio" name="question3" id="correct3" />sort()<br />
+        <input type="radio" name="question3" />order()<br />
+        <input type="radio" name="question3" />changeorder(order)<br />
+        <input type="radio" name="question3" />none of these<br />
+        <input type="button" name="button" value="submitquiz" onclick="result()" />
+    </form>
+
+</body>
+ 
+
+
+
+</html>

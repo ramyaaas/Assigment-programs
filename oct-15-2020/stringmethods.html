@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <script type="text/javascript">
+        var txt = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        document.write("the lenth of the string is &nbsp" + txt.length+"<br>");
+        var str = "hello how are you ?";
+        var x = str.indexOf("are");
+        document.write("the index of are is &nbsp" + x+"<br>");
+        var str1 = "hello how are you ? how are you doing";
+        var x1 = str1.lastIndexOf("are");
+        document.write("the last index of are is &nbsp" + x1 + "<br>");
+        var str1 = "hello how are you ? how are you doing";
+        var x1 = str1.search("are");
+        document.write("the position of are is &nbsp" + x1 + "<br>");
+        var str1 = "hello how are you ? how are you doing";
+        var x1 = str1.slice(2, 15);
+        document.write("the remaining string is &nbsp" + x1+"<br>");
+        var str1 = "hello how are you ? how are you doing";
+        var n = str1.replace("how", "good");
+        document.write("the new string is " +n + "<br>");
+        str = "Please visit Microsoft and Microsoft!";
+        var n = str.replace("Microsoft", "W3Schools");
+        document.write("the new string is " + n + "<br>");
+        var str1 = "     hello how are you ? how are you doing";
+        var n = str1.trim();
+        document.write("the new string is " + n + "<br>");
+        var str = "hello,how,are,you ";
+        var x = str.split(",")
+
+        for (var i = 0; i < x.length; i++) {
+            document.write(x[i] + "<br>");
+        }
+
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <script type="text/javascript">
+        function joinex() {
+            var cities = ["Bangalore", "Hyderabad", "Mumbai", "Chennai"];
+            document.getElementById('pid').innerHTML = cities.join(" * ");
+        }
+        function tostringex() {
+            var cities = ["Bangalore", "Hyderabad", "Mumbai", "Chennai"];
+            document.getElementById('pid1').innerHTML = cities.toString();
+        }
+        function pushexample() {
+            var cities = ["Bangalore", "Hyderabad", "Mumbai", "Chennai"];
+            cities.push("delhi");
+            for (var i = 0; i < cities.length; i++) {
+                document.write(cities[i] + "<br>");
+            }
+        }
+        function popexample() {
+            var cities = ["Bangalore", "Hyderabad", "Mumbai", "Chennai"];
+            cities.pop();
+            for (var i = 0; i < cities.length; i++) {
+                document.write(cities[i] + "<br>");
+            }
+        }
+        function shiftexample() {
+            var cities = ["Bangalore", "Hyderabad", "Mumbai", "Chennai"];
+            cities.shift();
+            for (var i = 0; i < cities.length; i++) {
+                document.write(cities[i] + "<br>");
+            }
+        }
+        function unshiftexample() {
+            var cities = ["Bangalore", "Hyderabad", "Mumbai", "Chennai"];
+            cities.unshift("delhi");
+            for (var i = 0; i < cities.length; i++) {
+                document.write(cities[i] + "<br>");
+            }
+        }
+        function lengthexample() {
+            var cities = ["Bangalore", "Hyderabad", "Mumbai", "Chennai"];
+            document.write("the length of the array is &nbsp" + cities.length)
+
+        }
+        function spliceexample() {
+            var cities = ["Bangalore", "Hyderabad", "Mumbai", "Chennai"];
+            cities.splice(1, 4);
+            for (var i = 0; i < cities.length; i++) {
+                document.write(cities[i] + "<br>");
+            }
+        }
+        function deleteexample() {
+            var cities = ["Bangalore", "Hyderabad", "Mumbai", "Chennai"];
+            delete cities[3];
+            for (var i = 0; i < cities.length; i++) {
+                document.write(cities[i] + "<br>");
+            }
+        }
+        function mergeexample() {
+            var boys = ["virat", "rohith"];
+            var girls = ["ramya", "gnana", "Lakshmi"];
+            var m1 = girls.concat(boys);
+            for (var i = 0; i < m1.length; i++) {
+                document.write(m1[i] + "<br>");
+            }
+
+        }
+        function sliceexample() {
+            var girls = ["ramya", "gnana", "Lakshmi"];
+            var m1 = girls.slice(2);
+            for (var i = 0; i < m1.length; i++) {
+                document.write(m1[i] + "<br>");
+            }
+
+        }
+
+    </script>
+    <input type="button" value="join example" onclick="joinex()" />
+    <p id="pid"></p>
+
+    <input type="button" value="tostring example" onclick="tostringex()" />
+    <p id="pid1"></p>
+
+    <input type="button" value="push example" onclick="pushexample()" />
+
+    <input type="button" value="pop example" onclick="popexample()" />
+
+    <input type="button" value="shift example" onclick="shiftexample()" />
+
+    <input type="button" value="unshift example" onclick="unshiftexample()" />
+
+    <input type="button" value="length example" onclick="lengthexample()" />
+
+    <input type="button" value="splice example" onclick="spliceexample()" />
+
+    <input type="button" value="delete example" onclick="deleteexample()" />
+    <input type="button" value="merge example" onclick="mergeexample()" />
+    <input type="button" value="slice example" onclick="sliceexample()" />
+
+
+</body>
+</html>

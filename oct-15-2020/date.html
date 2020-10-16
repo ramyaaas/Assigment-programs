@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <script type="text/javascript">
+        var d = new Date(2018, 11, 24, 10, 33, 30, 0);
+        var d = new Date("2015-03-25");
+        var d = new Date("2015-03");
+        var d = new Date("25-03-2015");
+        var d = new Date("25 Mar 2015");
+        var d = new Date("JANUARY, 25, 2015");
+        var d = new Date();
+        document.getElementById("demo").innerHTML = d.getFullYear();
+        document.getElementById("demo").innerHTML = d.getMonth();
+        var d = new Date();
+        d.setFullYear(2020);
+        document.getElementById("demo").innerHTML = d;
+
+    </script>
+    <h2>JavaScript getFullYear()</h2>
+
+    <p>The getFullYear() method returns the full year of a date:</p>
+
+    <p id="demo"></p>
+    <h2>JavaScript setFullYear()</h2>
+
+    <p>The setFullYear() method sets the year of a date object:</p>
+
+    <p id="demo"></p>
+
+</body>
+</html>
