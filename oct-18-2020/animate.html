@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title></title>
+</head>
+<body>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                $("div").animate({ left: '250px' });
+            });
+        });
+        $(document).ready(function () {
+            $("button").click(function () {
+                $("div").animate({
+                    left: '250px',
+                    opacity: '0.5',
+                    height: '150px',
+                    width: '150px' });
+            });
+        });
+        $(document).ready(function () {
+                $("button").click(function () {
+                    $("div").animate({
+                        left: '250px',
+                        height: '+=150px',
+                        width: '+=150px'
+                    });
+                });
+        });
+        $("button").click(function () {
+            var div = $("div");
+            div.animate({ height: '300px', opacity: '0.4' }, "slow");
+            div.animate({ width: '300px', opacity: '0.8' }, "slow");
+            div.animate({ height: '100px', opacity: '0.4' }, "slow");
+            div.animate({ width: '100px', opacity: '0.8' }, "slow");
+        }); 
+        
+    </script>
+    <button>Start Animation</button>
+    <div style="height:100px;width:100px;position:absolute"><img src="image.jpg" /></div>
+
+</body>
+</html>
