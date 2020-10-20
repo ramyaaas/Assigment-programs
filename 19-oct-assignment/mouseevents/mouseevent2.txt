@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>mouseevents2</title>
+    
+</head>
+<body>
+    <p id="pid">hello everyone how r you?</p><br />
+    <input type="button" onmouseover="changestyle()" value="mouseover" />
+    <input type="button" onmouseout="changetext()" value="mouseout" />
+    <input type="button" onmousedown="changecolor()" value="mousedown" />
+    <input type="button" onmousemove="changesize()" value="mousemove" />
+    <input type="button" onmouseup="changefontfamily()" value="mouseup" />
+
+    <script>
+        function changestyle() {
+            document.getElementById("pid").style.backgroundColor = "red";
+        }
+
+        function changetext() {
+            document.getElementById("pid").innerHTML = "I amm fine";
+        }
+        function changecolor() {
+            document.getElementById("pid").style.color = "blue";
+        }
+        function changesize() {
+            document.getElementById("pid").style.width = "100px";
+        }
+        function changefontfamily() {
+            document.getElementById("pid").style.font = "Algerian";
+        }
+    </script>
+
+</body>
+</html>

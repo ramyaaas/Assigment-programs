@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <script>
+        var x =document.getElementById('black');
+        x.addEventListener("click",myfunc1);
+        x.addEventListener("click", myfunc2);
+        x.addEventListener("click", myfunc3);
+
+        function myfunc1() {
+            alert("this is first event");
+        }
+
+        function myfunc2() {
+            alert("this second event");
+        }
+        function myfunc3() {
+            alert("this third event");
+        }
+
+    </script>
+    <h1> javascript event listener</h1>
+    <p>event listener to two clicks on single button</p>
+    <input type="button" id="black" value="click here" />
+
+</body>
+</html>

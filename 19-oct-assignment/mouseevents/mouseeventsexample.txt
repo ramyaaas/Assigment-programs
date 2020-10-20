@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <img src="sample.jpg" onmouseover="bigimg(this)" onmouseout="normalimg(this)" border="0" alt="image not available" width="42"  height="41" />
+    <img src="sample.jpg" onmousedown="bigimg(this)" onmouseup="normalimg(this)" border="0" alt="image not available" width="42" height="41" />
+
+    <script>
+        function bigimg(x) {
+            x.style.heigth = "90px";
+            x.style.width = "64px";
+        }
+
+        function normalimg(x) {
+            x.style.heigth = "40px";
+            x.style.width = "40px";
+        }
+    </script>
+
+
+</body>
+</html>

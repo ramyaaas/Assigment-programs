@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    <h1>Create JSON string from a JavaScript object.</h1>
+
+    <p id="demo"></p>
+    <p id="demo1"></p>
+
+
+
+    <script>
+        var obj = { name: "ramya", age: 30, city: "chitradurga" };
+        var myJSON = JSON.stringify(obj);
+        document.getElementById("demo").innerHTML = myJSON;
+        obj.age = obj.age.toString();
+        var myJSON1 = JSON.stringify(obj);
+
+        document.getElementById("demo1").innerHTML = myJSON1;
+    </script>
+
+</body>
+</html>

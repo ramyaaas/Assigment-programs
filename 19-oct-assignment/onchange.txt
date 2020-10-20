@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body>
+    Enter some text: <input type="text" name="txt" value="Hello" onchange="myFunction(this.value)">
+
+    <script>
+function myFunction(val) {
+  alert("The input value has changed. The new value is: " + val);
+    }
+    </script>
+
+</body>
+</html>

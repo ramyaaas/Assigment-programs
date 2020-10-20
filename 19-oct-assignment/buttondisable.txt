@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <style>
+        .hid,.hid2{
+            color:red;
+            background-color:yellow
+        }
+    </style>
+</head>
+<body>
+    <h1 class="hid">good morning</h1>
+    <h2 class="hid2">very good morning</h2>
+    <p>click the button to disable the button</p>
+    <button id="bt1"onclick="func1()">click  here</button>
+    <script>
+        function func1() {
+            document.getElementById("bt1").disabled= true;
+            alert("button disabled");
+        }
+    </script>
+
+</body>
+</html>
