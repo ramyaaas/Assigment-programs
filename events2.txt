@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+<body id="body1">
+    <script type="text/javascript">
+        var x = document.getElementById("demo").addEventListener("click", f1);
+        var x = document.getElementById("demo").addEventListener("click", f2);
+
+        function f1() {
+            alert("hi younhave clicked the button");
+        }
+        function f2() {
+            document.getElementById('hid').innerHTML = "hi my name is gnana";
+        }
+        
+    </script>
+    <h1 id="hid">my name is ramya</h1>
+    <h1 id="hid1">my name is ramya</h1>
+    <img src="sample.jpg" id="img" style="width:500px ;height:500px" />
+    <button onclick="f1()" id="demo1">click me</button>
+    
+
+</body>
+</html>
