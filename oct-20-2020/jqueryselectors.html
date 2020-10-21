@@ -1,0 +1,57 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#2").click(function () {
+                $("[href]").hide();
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#1").click(function () {
+                $("a[target='_blank']").hide();
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $("#3").click(function () {
+                $("a[target!='_blank']").hide();
+            });
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            $(".btn").click(function () {
+                $(":button").hide();
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <h1>Jquery Selectors</h1>
+    <p><a href="https://www.javatpoint.com/html-tutorial">HTML Tutorial</a></p>
+    <p><a href="https://www.javatpoint.com/css-tutorial">CSS Tutorial</a></p>
+    <button id="2">Click me</button><br />
+
+    <p><a href="https://www.javatpoint.com/javascript-tutorial" target="_blank">JavaSccript Tutorial</a></p>
+    <p><a href="https://www.javatpoint.com/php-tutorial">PHP Tutorial</a></p><br />
+
+
+    <button id="1">Click me</button><br />
+
+    <p><a href="https://www.javatpoint.com/java-tutorial" target="_blank">Java Tutorial</a></p>
+    <p><a href="https://www.javatpoint.com/c-tutorial">C Tutorial</a></p><br />
+
+
+    <button id="3">Click me</button><br /><br />
+    <button class="btn">Hello</button>
+</body>
+</html>
