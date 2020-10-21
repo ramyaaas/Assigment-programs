@@ -1,0 +1,51 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+    <title></title>
+</head>
+<body>
+    <script>
+        $(document).ready(function () {
+            $("button").click(function () {
+                $("#div1").remove();
+            });
+        });
+        $(document).ready(function () {
+            $("bt2").click(function () {
+               $("#div2").empty();
+            });
+       });
+
+
+
+
+    </script>
+    <div id="div1" style="height:500px;width:500px;border:1px solid black;background-color:yellow;">
+        hello everyone
+        <h1>good morning</h1>
+        <h2>have a great year ahead</h2>
+
+    </div>
+    <!--<div id="div2">
+        
+        <h1>good morning</h1>
+        <h2>have a great year ahead</h2>
+
+    </div>-->
+    <button >remove</button>
+    <button id="bt2">empty</button>
+
+</body>
+</html>
+
+
+                
+           
+            
+
+
+         

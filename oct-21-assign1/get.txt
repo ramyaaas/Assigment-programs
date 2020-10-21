@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+  $("#bt1").click(function(){
+    alert("Text: " + $("#pid").text());
+  });
+  $("#bt2").click(function(){
+    alert("HTML: " + $("#pid").html());
+  });
+});
+  $(document).ready(function(){
+  $("bt3").click(function(){
+    alert("Value: " + $("test").val());
+  });
+ });
+$(document).ready(function(){
+  $("button").click(function(){
+    alert($("#w3s").attr("href"));
+  });
+});
+
+</script>
+</head>
+<body>
+
+<p id="pid">This is some  text in a paragraph.</p>
+
+<button id="bt1">click to show Text</button>
+<button id="bt2">click to Show HTML</button>
+<p>Name: <input type="text" id="test" value="Mickey Mouse"></p>
+
+<button>Show Value</button>
+<p><a href="https://www.w3schools.com" id="w3s">W3Schools.com</a></p>
+
+<button>Show href Value</button>
+
+
+</body>
+</html>
