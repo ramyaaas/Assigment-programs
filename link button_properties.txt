@@ -1,0 +1,643 @@
+Properties of ASP.NET LinkButton
+1.BackColor, ForeColor. This property gets or sets the background and the foreground color of the link button.
+
+<asp:LinkButton ID="myLinkButton" BackColor="DarkBlue" ForeColor="White" runat="server" >Click here </asp:LinkButton>
+
+2.BorderColor, BorderStyle and BorderWidth. These properties get or set the border styling for the link button control.
+
+<asp:LinkButton ID="myLinkButton" BorderWidth="5" BorderColor="Blue" BorderStyle="dashed" runat="server" > Click here </asp:LinkButton>
+
+3.CausesValidation. This property gets or sets a value which indicates whether a validation must be performed or not...
+
+<asp:LinkButton ID="myLinkButton" CausesValidation="false" runat="server" > Click here </asp:LinkButton>
+
+4.CssClass. This property gets or sets the CSS class to be applied to the control.
+
+<asp:LinkButton ID="myLinkButton" CssClass="txtBxClass" runat="server" > Click here </asp:LinkButton>
+
+5.Enabled. This property gets or sets the value...
+
+<asp:LinkButtonID="myLinkButton" Enabled="false" runat="server" > Click here </asp:LinkButton>
+
+6.font
+
+This property gets or sets the font of the text to be displayed in the link button. There are plenty of styles and options such as bold, italics, underline, strikeout, etc.
+
+7.height,width
+These properties get or set the height and width of the link button in the number of pixels.
+
+<asp:LinkButtonID="myLinkButton" Height="100" Width="500" runat="server" > Click here </asp:LinkButton>
+
+8.ID
+This property gets or sets the unique identifier attribute to the link button.
+
+<asp:LinkButtonID="myLinkButton" runat="server" > Click here </asp:LinkButton>
+
+9.PostBackUrl
+
+This property gets or sets the URL of the page to navigate to from the current page.
+
+<asp:LinkButtonID="myLinkButton" PostBackUrl="~/mywebpage.aspx" runat="server" > Click here </asp:LinkButton>
+
+10.Text
+
+This property gets or sets the text displayed in the link button control.
+
+<asp:LinkButtonID="myLinkButton" Text="Click here" runat="server" > </asp:LinkButton>
+
+11.ToolTip
+
+This property gets or sets the tooltip value to be displayed when the mouse pointer has hovered over the link button.
+
+<asp:LinkButtonID="myLinkButton" ToolTip="Click here to go to my web page." runat="server" > Click here </asp:LinkButton>
+
+12.Visible
+
+This property determines whether the link button control will be displayed on the UI or hidden. The default is true.
+
+<asp:LinkButtonID="myLinkButton" Visible="false" runat="server" > Click here </asp:LinkButton>
+
+
+
+
+
+
+
+<%@ Page Language="C#" AutoEventWireup="true"   
+CodeBehind="LinkButtonExample.aspx.cs" Inherits="LinkButtonExample.LinkButtonExample" %>  
+<!DOCTYPE html>  
+<html xmlns="http://www.w3.org/1999/xhtml">  
+<head runat="server">  
+    <title></title>  
+</head>  
+<body>  
+    <form id="form1" runat="server">  
+        <div>  
+            <p>It is a hyperlink style button</p>  
+        </div>  
+        <asp:LinkButton ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">javatpoint</asp:LinkButton>  
+        <p>  
+            <asp:Label ID="Label1" runat="server"></asp:Label>  
+        </p>  
+    </form>  
+</body>  
+</html>  
+
+
+
+using System;  
+using System.Collections.Generic;  
+using System.Linq;  
+using System.Web;  
+using System.Web.UI;  
+using System.Web.UI.WebControls;  
+namespace LinkButtonExample  
+{  
+    public partial class LinkButtonExample : System.Web.UI.Page  
+    {  
+        protected void LinkButton1_Click(object sender, EventArgs e)  
+        {  
+            Label1.Text = "Welcome to the javatpoint";  
+        }  
+    }  
+}  
+
+
+
+1.backcolor property
+
+<%@ Page Language="C#" AutoEventWireup="True" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<script runat="server">
+</script>
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="Head1" runat="server">
+    <title>BackColor Property</title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <h3>BackColor Property of a Web Control</h3>
+ 
+        <asp:Table id="Table1" runat="server"
+            CellPadding = "10" 
+            GridLines="Both"
+            BackColor="LightBlue">
+            <asp:TableRow>
+                <asp:TableCell>
+                    Row 0, Col 0
+                </asp:TableCell>
+                <asp:TableCell>
+                    Row 0, Col 1
+                </asp:TableCell>
+            </asp:TableRow>
+            <asp:TableRow>
+                <asp:TableCell>
+                    Row 1, Col 0
+                </asp:TableCell>
+                <asp:TableCell>
+                    Row 1, Col 1
+                </asp:TableCell>
+            </asp:TableRow>
+        </asp:Table>
+    </div>
+    </form>
+</body>
+</html>
+
+
+forecolor
+<%@ Page Language="C#" AutoEventWireup="True" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<script runat="server">
+</script>
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="Head1" runat="server">
+    <title>Table Property</title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <h3>Property of a Table Web Control</h3>
+ 
+        <asp:Table id="Table1" runat="server"
+            CellPadding = "10" 
+            CellSpacing="0"
+            GridLines="Both"
+            Font-Bold="true"
+            ForeColor="Red">
+
+            <asp:TableRow>
+                <asp:TableCell>
+                    Row 0, Col 0
+                </asp:TableCell>
+                <asp:TableCell>
+                    Row 0, Col 1
+                </asp:TableCell>
+            </asp:TableRow>
+
+            <asp:TableRow>
+                <asp:TableCell>
+                    Row 1, Col 0
+                </asp:TableCell>
+                <asp:TableCell>
+                    Row 1, Col 1
+                </asp:TableCell>
+            </asp:TableRow>
+        </asp:Table>
+    </div>
+    </form>
+</body>
+</html>
+
+
+2.border color propeerty
+
+<%@ Page Language="C#" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<script runat="server">
+</script>
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="Head1" runat="server">
+    <title>BorderColor Property</title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <h3>BorderColor Property of a Web Control</h3>
+ 
+        <asp:Table id="Table1" runat="server"
+            CellPadding = "10" 
+            CellSpacing="0"
+            GridLines="Both"
+            BorderWidth="3"
+            BorderColor="Red">
+
+            <asp:TableRow>
+                <asp:TableCell>
+                    Row 0, Col 0
+                </asp:TableCell>
+                <asp:TableCell>
+                    Row 0, Col 1
+                </asp:TableCell>
+            </asp:TableRow>
+
+            <asp:TableRow>
+                <asp:TableCell>
+                    Row 1, Col 0
+                </asp:TableCell>
+                <asp:TableCell>
+                    Row 1, Col 1
+                </asp:TableCell>
+            </asp:TableRow>
+        </asp:Table>
+    </div>
+    </form>
+</body>
+</html>
+
+3.border style-dotted here
+
+<%@ Page Language="C#" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<script runat="server">
+</script>
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="Head1" runat="server">
+    <title>BorderStyle Property</title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <h3>BorderStyle Property of a Web Control</h3>
+ 
+        <asp:Table id="Table1" runat="server"
+            CellPadding = "10" 
+            CellSpacing="0"
+            GridLines="Both"
+            BorderWidth="3"
+            BorderColor="Red"
+            BorderStyle="dashed">
+
+            <asp:TableRow>
+                <asp:TableCell>
+                    Row 0, Col 0
+                </asp:TableCell>
+                <asp:TableCell>
+                    Row 0, Col 1
+                </asp:TableCell>
+            </asp:TableRow>
+
+            <asp:TableRow>
+                <asp:TableCell>
+                    Row 1, Col 0
+                </asp:TableCell>
+                <asp:TableCell>
+                    Row 1, Col 1
+                </asp:TableCell>
+            </asp:TableRow>
+        </asp:Table>
+    </div>
+    </form>
+</body>
+</html>
+
+
+4.border width
+
+<%@ Page Language="C#" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<script runat="server">
+</script>
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="Head1" runat="server">
+    <title>Table Property</title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <h3>Property of a Table Web Control</h3>
+ 
+        <asp:Table id="Table1" runat="server"
+            CellPadding = "100" 
+            CellSpacing="10"
+            GridLines="Both"
+            BorderColor="green"
+            BorderWidth="5">
+
+            <asp:TableRow>
+                <asp:TableCell>
+                    Row 0, Col 0
+                </asp:TableCell>
+                <asp:TableCell>
+                    Row 0, Col 1
+                </asp:TableCell>
+            </asp:TableRow>
+
+            <asp:TableRow>
+                <asp:TableCell>
+                    Row 1, Col 0
+                </asp:TableCell>
+                <asp:TableCell>
+                    Row 1, Col 1
+                </asp:TableCell>
+            </asp:TableRow>
+        </asp:Table>
+    </div>
+    </form>
+</body>
+</html>
+
+5.css class
+
+<%@ Page Language="C#" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<script runat="server">
+    void Button1_Click(object sender, EventArgs e)
+    {
+        if (HyperLink1.CssClass == "CssStyle1")
+            HyperLink1.CssClass = "CssStyle2";
+        else
+            HyperLink1.CssClass = "CssStyle1";
+    }
+</script>
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="Head2" runat="server">
+    <title>CssClass Property Example</title>
+    <style type="text/css">
+        .CssStyle1   
+        { 
+           font: 110pt Verdana; 
+           font-weight:900;
+           color: black;
+        }
+
+        .CssStyle2
+        { 
+           font: 20pt Times; 
+           font-weight:20;
+           color: orange;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <h3>CssClass Property of a Web Control</h3>
+        <asp:HyperLink id="HyperLink1" 
+            NavigateUrl="http://www.microsoft.com" 
+            CssClass="CssClass1" 
+            Text="Click here to go to the Microsoft site" 
+            Target="_new" runat="server" />
+        <p><asp:Button id="Button1" 
+            Text="Click to change the CSS style of the link"
+            OnClick="Button1_Click" runat="server" />
+         </p>
+    </div>
+    </form>
+</body>
+</html>
+
+
+
+6.font
+
+<%@ Page Language="C#" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<script runat="server">
+ 
+        void Button1_Click(object sender, EventArgs e)
+        {
+            Label1.Text = "The current font is: " + Label1.Font.ToString();
+        }
+
+        void Button2_Click(object sender, EventArgs e)
+        {
+            Label1.Font.Underline = !Label1.Font.Underline;
+            if (Label1.Font.Name == "Verdana")
+                Label1.Font.Name = "Times";
+            else
+                Label1.Font.Name = "Verdana";
+        }
+</script>
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="Head2" runat="server">
+    <title>Enabled Property Example</title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <h3>FontUnit Property of a Web Control</h3>
+        <asp:Label id="Label1" runat="server"
+            Font-Names="Verdana" Font-Size="10pt"
+            Text="This is a Label control." />  
+ 
+            <p>
+            <asp:Button id="Button1" runat="server"
+                Text="Click to display font info"
+                OnClick="Button1_Click" Width="300px" />
+            </p>
+ 
+            <p>
+            <asp:Button id="Button2" runat="server"
+                Text="Click to change font and underlining"
+                OnClick="Button2_Click" Width="300px" />
+            </p>
+    </div>
+    </form>
+</body>
+</html>
+
+
+
+7.height
+
+<%@ Page Language="C#" AutoEventWireup="True" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<script runat="server">
+</script>
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="Head1" runat="server">
+    <title>Table Property</title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <h3>Property of a Table Web Control</h3>
+ 
+        <asp:Table id="Table1" runat="server"
+            CellPadding = "20" 
+            CellSpacing="10"
+            GridLines="Both"
+            Height="100">
+
+            <asp:TableRow>
+                <asp:TableCell>
+                    Row 0, Col 0
+                </asp:TableCell>
+                <asp:TableCell>
+                    Row 0, Col 1
+                </asp:TableCell>
+            </asp:TableRow>
+
+            <asp:TableRow>
+                <asp:TableCell>
+                    Row 1, Col 0
+                </asp:TableCell>
+                <asp:TableCell>
+                    Row 1, Col 1
+                </asp:TableCell>
+            </asp:TableRow>
+        </asp:Table>
+    </div>
+    </form>
+</body>
+</html>
+
+8.width
+
+<%@ Page Language="C#" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="Head2" runat="server">
+    <title>WebControl Example</title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+
+    <h3>Width Property of a Web Control</h3>
+    <asp:Table id="Table1" runat="server"
+        CellPadding="100" GridLines="Both"
+        Width="500">
+ 
+        <asp:TableRow>
+            <asp:TableCell>
+                Row 0, Col 0
+            </asp:TableCell>
+ 
+            <asp:TableCell>
+                Row 0, Col 1
+            </asp:TableCell>
+        </asp:TableRow>
+ 
+        <asp:TableRow>
+            <asp:TableCell>
+                Row 1, Col 0
+            </asp:TableCell>
+ 
+            <asp:TableCell>
+                Row 1, Col 1
+            </asp:TableCell>
+        </asp:TableRow>
+ 
+ </asp:Table>
+ 
+    </div>
+    </form>
+</body>
+</html>
+
+9.tooltip
+
+<%@ Page Language="C#" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<script runat="server">
+ 
+    void SubmitBtn_Click(object sender, EventArgs e)
+    {
+        if (((Button)sender).CommandArgument == "1")
+            Label1.Text = "Change the world!";
+        else
+            Label1.Text = "Save the world!";
+
+        Label1.BorderColor = System.Drawing.Color.BurlyWood;
+        Label1.BorderWidth = 4;
+    }
+ 
+ </script>
+ <html xmlns="http://www.w3.org/1999/xhtml">
+ <head runat="server">
+    <title>WebControl.ToolTip Example</title>
+ </head>
+ <body>
+ <form id="Form1" runat="server">
+ 
+    <h3>ToolTip Property of a Web Control</h3>
+    <p>Don't know which button to click?<br />
+        Move the mouse pointer over the buttons to find out!
+    </p>
+
+    <p><asp:Button id="SubmitBtn1" OnClick="SubmitBtn_Click" 
+            Text="Click Me" CommandArgument="1"
+            ToolTip="Click me if you are an engineer" runat="server"/>
+    </p>
+
+    <p><asp:Button id="SubmitBtn2" OnClick="SubmitBtn_Click" 
+            Text="Click Me" CommandArgument="2"
+            ToolTip="Click me if you are a doctor." runat="server"/>
+    </p>
+
+    <asp:Label id="Label1" Font-size="24pt" Font-Bold="True" 
+        BackColor="Yellow" runat="server"/>
+
+ </form>
+ 
+ </body>
+ </html>
+
+10.hide and unhide
+
+<%@ Page Language="C#" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<script runat="server">
+ 
+    void Button1_Click(Object sender, EventArgs e)
+    {
+        if (Label1.Style["visibility"] == "hidden")
+            Label1.Style["visibility"] = "show";
+        else
+            Label1.Style["visibility"] = "hidden";
+    }
+ 
+</script>
+ 
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="Head2" runat="server">
+    <title>Style Property of a Web Control</title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+ 
+        <h3>Style Property of a Web Control</h3>
+ 
+        <asp:Label id="Label1" Text="This is a label control." 
+            BorderStyle="Solid" runat="server"/>
+
+        <p>
+            <asp:Button id="Button1" 
+                Text="Click to hide or unhide the label"
+                OnClick="Button1_Click" runat="server"/>
+        </p>
+
+    </div>
+    </form>
+</body>
+</html>
+
