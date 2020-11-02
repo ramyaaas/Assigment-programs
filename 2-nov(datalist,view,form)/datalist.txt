@@ -1,0 +1,48 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="datalist.aspx.cs" Inherits="_2_nov_2020.datalist" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <asp:DataList ID="DataList1" runat="server" DataKeyField="StudentId" DataSourceID="SqlDataSource1">
+                <ItemTemplate>
+                    StudentId:
+                    <asp:Label ID="StudentIdLabel" runat="server" Text='<%# Eval("StudentId") %>' />
+                    <br />
+                    StudentName:
+                    <asp:Label ID="StudentNameLabel" runat="server" Text='<%# Eval("StudentName") %>' />
+                    <br />
+                    StudentEmail:
+                    <asp:Label ID="StudentEmailLabel" runat="server" Text='<%# Eval("StudentEmail") %>' />
+                    <br />
+                    StudentMbl:
+                    <asp:Label ID="StudentMblLabel" runat="server" Text='<%# Eval("StudentMbl") %>' />
+                    <br />
+                    StudentGender:
+                    <asp:Label ID="StudentGenderLabel" runat="server" Text='<%# Eval("StudentGender") %>' />
+                    <br />
+                    StudentRollNo:
+                    <asp:Label ID="StudentRollNoLabel" runat="server" Text='<%# Eval("StudentRollNo") %>' />
+                    <br />
+                    StudentCity:
+                    <asp:Label ID="StudentCityLabel" runat="server" Text='<%# Eval("StudentCity") %>' />
+                    <br />
+                    StudentAddress:
+                    <asp:Label ID="StudentAddressLabel" runat="server" Text='<%# Eval("StudentAddress") %>' />
+                    <br />
+                    StudentImage:
+                    <asp:Label ID="StudentImageLabel" runat="server" Text='<%# Eval("StudentImage") %>' />
+                    <br />
+<br />
+                </ItemTemplate>
+            </asp:DataList>
+        </div>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Employee %>" SelectCommand="SELECT * FROM [Student]"></asp:SqlDataSource>
+    </form>
+</body>
+</html>

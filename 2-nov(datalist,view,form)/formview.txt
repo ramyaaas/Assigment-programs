@@ -1,0 +1,110 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="formview.aspx.cs" Inherits="_2_nov_2020.formview" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <asp:FormView ID="FormView1" runat="server" AllowPaging="True" DataKeyNames="StudentId" DataSourceID="SqlDataSource1">
+                <EditItemTemplate>
+                    StudentId:
+                    <asp:Label ID="StudentIdLabel1" runat="server" Text='<%# Eval("StudentId") %>' />
+                    <br />
+                    StudentName:
+                    <asp:TextBox ID="StudentNameTextBox" runat="server" Text='<%# Bind("StudentName") %>' />
+                    <br />
+                    StudentEmail:
+                    <asp:TextBox ID="StudentEmailTextBox" runat="server" Text='<%# Bind("StudentEmail") %>' />
+                    <br />
+                    StudentMbl:
+                    <asp:TextBox ID="StudentMblTextBox" runat="server" Text='<%# Bind("StudentMbl") %>' />
+                    <br />
+                    StudentGender:
+                    <asp:TextBox ID="StudentGenderTextBox" runat="server" Text='<%# Bind("StudentGender") %>' />
+                    <br />
+                    StudentRollNo:
+                    <asp:TextBox ID="StudentRollNoTextBox" runat="server" Text='<%# Bind("StudentRollNo") %>' />
+                    <br />
+                    StudentCity:
+                    <asp:TextBox ID="StudentCityTextBox" runat="server" Text='<%# Bind("StudentCity") %>' />
+                    <br />
+                    StudentAddress:
+                    <asp:TextBox ID="StudentAddressTextBox" runat="server" Text='<%# Bind("StudentAddress") %>' />
+                    <br />
+                    StudentImage:
+                    <asp:TextBox ID="StudentImageTextBox" runat="server" Text='<%# Bind("StudentImage") %>' />
+                    <br />
+                    <asp:LinkButton ID="UpdateButton" runat="server" CausesValidation="True" CommandName="Update" Text="Update" />
+                    &nbsp;<asp:LinkButton ID="UpdateCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+                </EditItemTemplate>
+                <InsertItemTemplate>
+                    StudentId:
+                    <asp:TextBox ID="StudentIdTextBox" runat="server" Text='<%# Bind("StudentId") %>' />
+                    <br />
+                    StudentName:
+                    <asp:TextBox ID="StudentNameTextBox" runat="server" Text='<%# Bind("StudentName") %>' />
+                    <br />
+                    StudentEmail:
+                    <asp:TextBox ID="StudentEmailTextBox" runat="server" Text='<%# Bind("StudentEmail") %>' />
+                    <br />
+                    StudentMbl:
+                    <asp:TextBox ID="StudentMblTextBox" runat="server" Text='<%# Bind("StudentMbl") %>' />
+                    <br />
+                    StudentGender:
+                    <asp:TextBox ID="StudentGenderTextBox" runat="server" Text='<%# Bind("StudentGender") %>' />
+                    <br />
+                    StudentRollNo:
+                    <asp:TextBox ID="StudentRollNoTextBox" runat="server" Text='<%# Bind("StudentRollNo") %>' />
+                    <br />
+                    StudentCity:
+                    <asp:TextBox ID="StudentCityTextBox" runat="server" Text='<%# Bind("StudentCity") %>' />
+                    <br />
+                    StudentAddress:
+                    <asp:TextBox ID="StudentAddressTextBox" runat="server" Text='<%# Bind("StudentAddress") %>' />
+                    <br />
+                    StudentImage:
+                    <asp:TextBox ID="StudentImageTextBox" runat="server" Text='<%# Bind("StudentImage") %>' />
+                    <br />
+                    <asp:LinkButton ID="InsertButton" runat="server" CausesValidation="True" CommandName="Insert" Text="Insert" />
+                    &nbsp;<asp:LinkButton ID="InsertCancelButton" runat="server" CausesValidation="False" CommandName="Cancel" Text="Cancel" />
+                </InsertItemTemplate>
+                <ItemTemplate>
+                    StudentId:
+                    <asp:Label ID="StudentIdLabel" runat="server" Text='<%# Eval("StudentId") %>' />
+                    <br />
+                    StudentName:
+                    <asp:Label ID="StudentNameLabel" runat="server" Text='<%# Bind("StudentName") %>' />
+                    <br />
+                    StudentEmail:
+                    <asp:Label ID="StudentEmailLabel" runat="server" Text='<%# Bind("StudentEmail") %>' />
+                    <br />
+                    StudentMbl:
+                    <asp:Label ID="StudentMblLabel" runat="server" Text='<%# Bind("StudentMbl") %>' />
+                    <br />
+                    StudentGender:
+                    <asp:Label ID="StudentGenderLabel" runat="server" Text='<%# Bind("StudentGender") %>' />
+                    <br />
+                    StudentRollNo:
+                    <asp:Label ID="StudentRollNoLabel" runat="server" Text='<%# Bind("StudentRollNo") %>' />
+                    <br />
+                    StudentCity:
+                    <asp:Label ID="StudentCityLabel" runat="server" Text='<%# Bind("StudentCity") %>' />
+                    <br />
+                    StudentAddress:
+                    <asp:Label ID="StudentAddressLabel" runat="server" Text='<%# Bind("StudentAddress") %>' />
+                    <br />
+                    StudentImage:
+                    <asp:Label ID="StudentImageLabel" runat="server" Text='<%# Bind("StudentImage") %>' />
+                    <br />
+
+                </ItemTemplate>
+            </asp:FormView>
+        </div>
+        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Employee %>" SelectCommand="SELECT * FROM [Student]"></asp:SqlDataSource>
+    </form>
+</body>
+</html>
