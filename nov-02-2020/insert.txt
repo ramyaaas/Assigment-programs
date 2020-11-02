@@ -1,0 +1,4 @@
+insert into Student values(101,'ramya','pmramya@gmail.com',8988787667,'female','4ub16cs031','Chitradurga','Vidhyanagar','~/Pictures/flight.jpg')
+insert into Student values(102,'ram','pmram@gmail.com',8988787667,'male','4ub16cs030','Davanagere','Vidhyanagar','~/Pictures/flight.jpg')
+insert into Student values(103,'sham','shama@gmail.com',8988787667,'male','4ub16cs021','Tumkur','MCC A block','~/Pictures/flight.jpg')
+insert into Student values(104,'asha','asha@gmail.com',8988787667,'female','4ub16cs011','Banglore','Vijaynagar','~/Pictures/flight.jpg')
