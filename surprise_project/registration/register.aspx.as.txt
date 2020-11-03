@@ -1,0 +1,56 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+using System.Data;
+using System.Data.SqlClient;
+using System.Configuration;
+
+namespace FlightTicketBookinProject
+{
+    public partial class UserRegistration : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["RegistrationTable"].ConnectionString);
+            con.Open();
+            var insertQuery = "insert into RegistrationTable (Username,Email,Password,Gender,Age) values (@Name,@email,@Password,@Gender,@Age)";
+            SqlCommand cmd = new SqlCommand(insertQuery, con);
+            string gender = string.Empty;
+            if (RadioButton1.Checked) 
+            {
+                gender = "male";
+            }
+            else if (RadioButton2.Checked)
+            {
+                gender = "female";
+            }
+         
+            cmd.Parameters.AddWithValue("@Name", textbox1.Text);
+            cmd.Parameters.AddWithValue("@email", textbox6.Text);
+            cmd.Parameters.AddWithValue("@Password", textbox2.Text);
+            cmd.Parameters.AddWithValue("@Gender", gender);
+            cmd.Parameters.AddWithValue("@Age", textbox4.Text);
+            cmd.ExecuteNonQuery();
+
+            Response.Write("Registration successfullt completed data inserted");
+            con.Close();
+            Label1.Text = "registration successfully completed data inserted!!!!!!!!!!!!!!";
+            Response.Redirect("Homepage.aspx");
+
+
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Homepage.aspx");
+        }
+    }
+}
