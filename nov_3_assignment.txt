@@ -1,0 +1,1097 @@
+
+assignment practice
+
+
+bridge
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace bridge
+{
+    
+    /// MainApp startup class for Structural
+
+    /// Bridge Design Pattern.
+
+    
+    class MainApp
+
+    {
+        
+        /// Entry point into console application.
+
+       
+        static void Main()
+        {
+            Abstraction ab = new RefinedAbstraction();
+
+            // Set implementation and call
+
+            ab.Implementor = new ConcreteImplementorA();
+            ab.Operation();
+
+            // Change implemention and call
+
+            ab.Implementor = new ConcreteImplementorB();
+            ab.Operation();
+
+            // Wait for user
+
+            Console.ReadKey();
+        }
+    }
+
+   
+    /// The 'Abstraction' class
+
+   
+    class Abstraction
+
+    {
+        protected Implementor implementor;
+
+        // Property
+
+        public Implementor Implementor
+        {
+            set { implementor = value; }
+        }
+
+        public virtual void Operation()
+        {
+            implementor.Operation();
+        }
+    }
+
+    
+    /// The 'Implementor' abstract class
+
+    
+    abstract class Implementor
+
+    {
+        public abstract void Operation();
+    }
+
+    
+    /// The 'RefinedAbstraction' class
+
+    
+    class RefinedAbstraction : Abstraction
+
+    {
+        public override void Operation()
+        {
+            implementor.Operation();
+        }
+    }
+
+    
+    /// The 'ConcreteImplementorA' class
+
+    
+    class ConcreteImplementorA : Implementor
+
+    {
+        public override void Operation()
+        {
+            Console.WriteLine("ConcreteImplementorA Operation");
+        }
+    }
+
+    
+    /// The 'ConcreteImplementorB' class
+
+    
+    class ConcreteImplementorB : Implementor
+
+    {
+        public override void Operation()
+        {
+            Console.WriteLine("ConcreteImplementorB Operation");
+        }
+    }
+}
+
+
+
+
+prototype
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace prototype
+{
+    
+    // MainApp startup class 
+
+    // Prototype Design Pattern.
+        
+    class MainApp
+
+    {
+       // Entry point into console application.
+              
+        static void Main()
+        {
+            // Create two instances and clone each
+
+
+            ConcretePrototype1 p1 = new ConcretePrototype1("I");
+            ConcretePrototype1 c1 = (ConcretePrototype1)p1.Clone();
+            Console.WriteLine("Cloned: {0}", c1.Id);
+
+            ConcretePrototype2 p2 = new ConcretePrototype2("II");
+            ConcretePrototype2 c2 = (ConcretePrototype2)p2.Clone();
+            Console.WriteLine("Cloned: {0}", c2.Id);
+
+            // Wait for user
+
+            Console.ReadKey();
+        }
+    }
+
+    
+    // The 'Prototype' abstract class
+
+   
+    abstract class Prototype
+
+    {
+        private string _id;
+
+        // Constructor
+
+        public Prototype(string id)
+        {
+            this._id = id;
+        }
+
+        // Gets id
+
+        public string Id
+        {
+            get { return _id; }
+        }
+
+        public abstract Prototype Clone();
+    }
+
+    
+    // A 'ConcretePrototype' class 
+
+    
+    class ConcretePrototype1 : Prototype
+
+    {
+        // Constructor
+
+        public ConcretePrototype1(string id)
+          : base(id)
+        {
+        }
+
+        // Returns a shallow copy
+
+        public override Prototype Clone()
+        {
+            return (Prototype)this.MemberwiseClone();
+        }
+    }
+
+   
+    // A 'ConcretePrototype' class 
+
+    
+    class ConcretePrototype2 : Prototype
+
+    {
+        // Constructor
+
+        public ConcretePrototype2(string id)
+          : base(id)
+        {
+        }
+
+        // Returns a shallow copy
+
+        public override Prototype Clone()
+        {
+            return (Prototype)this.MemberwiseClone();
+        }
+    }
+}
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace decorator
+
+{
+    
+    /// MainApp startup class for Structural 
+
+    /// Decorator Design Pattern.
+
+   
+    class MainApp
+
+    {
+       
+              
+        static void Main()
+        {
+            // Create ConcreteComponent and two Decorators
+
+            ConcreteComponent c = new ConcreteComponent();
+            ConcreteDecoratorA d1 = new ConcreteDecoratorA();
+            ConcreteDecoratorB d2 = new ConcreteDecoratorB();
+
+            // Link decorators
+
+            d1.SetComponent(c);
+            d2.SetComponent(d1);
+
+            d2.Operation();
+
+            // Wait for user
+
+            Console.ReadKey();
+        }
+    }
+
+ 
+    /// The 'Component' abstract class
+
+  
+    abstract class Component
+
+    {
+        public abstract void Operation();
+    }
+
+   
+    /// The 'ConcreteComponent' class
+
+   
+    class ConcreteComponent : Component
+
+    {
+        public override void Operation()
+        {
+            Console.WriteLine("ConcreteComponent.Operation()");
+        }
+    }
+
+   
+    /// The 'Decorator' abstract class
+
+      abstract class Decorator : Component
+
+    {
+        protected Component component;
+
+        public void SetComponent(Component component)
+        {
+            this.component = component;
+        }
+
+        public override void Operation()
+        {
+            if (component != null)
+            {
+                component.Operation();
+            }
+        }
+    }
+
+     /// The 'ConcreteDecoratorA' class
+
+    
+    class ConcreteDecoratorA : Decorator
+
+    {
+        public override void Operation()
+        {
+            base.Operation();
+            Console.WriteLine("ConcreteDecoratorA.Operation()");
+        }
+    }
+
+    
+    /// The 'ConcreteDecoratorB' class
+
+      class ConcreteDecoratorB : Decorator
+
+    {
+        public override void Operation()
+        {
+            base.Operation();
+            AddedBehavior();
+            Console.WriteLine("ConcreteDecoratorB.Operation()");
+        }
+
+        void AddedBehavior()
+        {
+        }
+    }
+}
+
+
+composite
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace composite
+{
+   
+    /// MainApp startup class for Structural 
+
+    /// Composite Design Pattern.
+
+       class MainApp
+
+    {
+       
+        /// Entry point into console application.
+
+               static void Main()
+        {
+            // Create a tree structure
+
+            Composite root = new Composite("root");
+            root.Add(new Leaf("Leaf A"));
+            root.Add(new Leaf("Leaf B"));
+
+            Composite comp = new Composite("Composite X");
+            comp.Add(new Leaf("Leaf XA"));
+            comp.Add(new Leaf("Leaf XB"));
+
+            root.Add(comp);
+            root.Add(new Leaf("Leaf C"));
+
+            // Add and remove a leaf
+
+            Leaf leaf = new Leaf("Leaf D");
+            root.Add(leaf);
+            root.Remove(leaf);
+
+            // Recursively display tree
+
+            root.Display(1);
+
+            // Wait for user
+
+            Console.ReadKey();
+        }
+    }
+
+    /// The 'Component' abstract class
+
+    
+    abstract class Component
+
+    {
+        protected string name;
+
+        // Constructor
+
+        public Component(string name)
+        {
+            this.name = name;
+        }
+
+        public abstract void Add(Component c);
+        public abstract void Remove(Component c);
+        public abstract void Display(int depth);
+    }
+
+    
+    /// The 'Composite' class
+
+    
+    class Composite : Component
+
+    {
+        private List<Component> _children = new List<Component>();
+
+        // Constructor
+
+        public Composite(string name)
+          : base(name)
+        {
+        }
+
+        public override void Add(Component component)
+        {
+            _children.Add(component);
+        }
+
+        public override void Remove(Component component)
+        {
+            _children.Remove(component);
+        }
+
+        public override void Display(int depth)
+        {
+            Console.WriteLine(new String('-', depth) + name);
+
+            // Recursively display child nodes
+
+            foreach (Component component in _children)
+            {
+                component.Display(depth + 2);
+            }
+        }
+    }
+
+  
+    /// The 'Leaf' class
+
+  
+    class Leaf : Component
+
+    {
+        // Constructor
+
+        public Leaf(string name)
+          : base(name)
+        {
+        }
+
+        public override void Add(Component c)
+        {
+            Console.WriteLine("Cannot add to a leaf");
+        }
+
+        public override void Remove(Component c)
+        {
+            Console.WriteLine("Cannot remove from a leaf");
+        }
+
+        public override void Display(int depth)
+        {
+            Console.WriteLine(new String('-', depth) + name);
+        }
+    }
+}
+
+
+
+
+
+
+practice
+
+
+
+
+
+abstract factory
+
+
+
+
+abstractfactoryusing System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace abstractfactory
+
+{
+   
+    /// MainApp - startup class
+
+    /// Abstract Factory Design Pattern.
+
+    
+    class MainApp
+
+    {
+            // Entry point into console application.
+
+        public static void Main()
+        {
+            // Abstract factory #1
+
+            AbstractFactory factory1 = new ConcreteFactory1();
+            Client client1 = new Client(factory1);
+            client1.Run();
+
+            // Abstract factory #2
+
+            AbstractFactory factory2 = new ConcreteFactory2();
+            Client client2 = new Client(factory2);
+            client2.Run();
+
+            // Wait for user input
+
+            Console.ReadKey();
+        }
+    }
+
+    
+    /// The 'AbstractFactory' abstract class
+
+    
+    abstract class AbstractFactory
+
+    {
+        public abstract AbstractProductA CreateProductA();
+        public abstract AbstractProductB CreateProductB();
+    }
+
+        
+    // The 'ConcreteFactory1' class
+
+   
+    class ConcreteFactory1 : AbstractFactory
+
+    {
+        public override AbstractProductA CreateProductA()
+        {
+            return new ProductA1();
+        }
+        public override AbstractProductB CreateProductB()
+        {
+            return new ProductB1();
+        }
+    }
+
+    
+    // The 'ConcreteFactory2' class
+
+   
+    class ConcreteFactory2 : AbstractFactory
+
+    {
+        public override AbstractProductA CreateProductA()
+        {
+            return new ProductA2();
+        }
+        public override AbstractProductB CreateProductB()
+        {
+            return new ProductB2();
+        }
+    }
+
+   
+    // The 'AbstractProductA' abstract class
+
+    
+    abstract class AbstractProductA
+
+    {
+    }
+
+   
+    // The 'AbstractProductB' abstract class
+
+    
+    abstract class AbstractProductB
+
+    {
+        public abstract void Interact(AbstractProductA a);
+    }
+
+        
+    /// The 'ProductA1' class
+
+    
+    class ProductA1 : AbstractProductA
+
+    {
+    }
+
+   
+    /// The 'ProductB1' class
+    
+    class ProductB1 : AbstractProductB
+
+    {
+        public override void Interact(AbstractProductA a)
+        {
+            Console.WriteLine(this.GetType().Name +
+              " interacts with " + a.GetType().Name);
+        }
+    }
+
+    
+    /// The 'ProductA2' class
+
+   
+    class ProductA2 : AbstractProductA
+
+    {
+    }
+
+    
+    /// The 'ProductB2' class
+
+  
+    class ProductB2 : AbstractProductB
+
+    {
+        public override void Interact(AbstractProductA a)
+        {
+            Console.WriteLine(this.GetType().Name +
+              " interacts with " + a.GetType().Name);
+        }
+    }
+
+       // The 'Client' class. Interaction environment for the products.
+          
+    class Client
+
+    {
+        private AbstractProductA _abstractProductA;
+        private AbstractProductB _abstractProductB;
+
+        // Constructor
+
+        public Client(AbstractFactory factory)
+        {
+            _abstractProductB = factory.CreateProductB();
+            _abstractProductA = factory.CreateProductA();
+        }
+
+        public void Run()
+        {
+            _abstractProductB.Interact(_abstractProductA);
+        }
+    }
+}
+
+
+
+Builder
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DoFactory.GangOfFour.Builder.Structural
+{
+    
+    // MainApp startup class 
+
+    /// Builder Design Pattern.
+
+    
+    public class MainApp
+
+    {
+        
+       // Entry point into console application.
+
+       
+        public static void Main()
+        {
+            // Create director and builders
+
+            Director director = new Director();
+
+            Builder b1 = new ConcreteBuilder1();
+            Builder b2 = new ConcreteBuilder2();
+
+            // Construct two products
+
+            director.Construct(b1);
+            Product p1 = b1.GetResult();
+            p1.Show();
+
+            director.Construct(b2);
+            Product p2 = b2.GetResult();
+            p2.Show();
+
+            // Wait for user
+
+            Console.ReadKey();
+        }
+    }
+
+      // The 'Director' class
+          
+    class Director
+
+    {
+        // Builder uses a complex series of steps
+
+        public void Construct(Builder builder)
+        {
+            builder.BuildPartA();
+            builder.BuildPartB();
+        }
+    }
+
+    
+    /// The 'Builder' abstract class
+
+      abstract class Builder
+
+    {
+        public abstract void BuildPartA();
+        public abstract void BuildPartB();
+        public abstract Product GetResult();
+    }
+
+   
+    /// The 'ConcreteBuilder1' class
+
+        class ConcreteBuilder1 : Builder
+
+    {
+        private Product _product = new Product();
+
+        public override void BuildPartA()
+        {
+            _product.Add("PartA");
+        }
+
+        public override void BuildPartB()
+        {
+            _product.Add("PartB");
+        }
+
+        public override Product GetResult()
+        {
+            return _product;
+        }
+    }
+
+    
+    // The 'ConcreteBuilder2' class
+
+    
+    class ConcreteBuilder2 : Builder
+
+    {
+        private Product _product = new Product();
+
+        public override void BuildPartA()
+        {
+            _product.Add("PartP");
+        }
+
+        public override void BuildPartB()
+        {
+            _product.Add("PartQ");
+        }
+
+        public override Product GetResult()
+        {
+            return _product;
+        }
+    }
+
+    
+    /// The 'Product' class
+
+   
+    class Product
+
+    {
+        private List<string> _parts = new List<string>();
+
+        public void Add(string part)
+        {
+            _parts.Add(part);
+        }
+
+        public void Show()
+        {
+            Console.WriteLine("Product Parts -------");
+            foreach (string part in _parts)
+                Console.WriteLine(part);
+        }
+    }
+}
+
+
+factory_method
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace factory_method
+{
+    
+    // MainApp startup class 
+
+    // Factory Method Design Pattern.
+
+   
+    class MainApp
+
+    {
+        static void Main()
+        {
+            // An array of creators
+
+            Creator[] creators = new Creator[2];
+
+            creators[0] = new ConcreteCreatorA();
+            creators[1] = new ConcreteCreatorB();
+
+            // Iterate over creators and create products
+
+            foreach (Creator creator in creators)
+            {
+                Product product = creator.FactoryMethod();
+                Console.WriteLine("Created {0}",
+                  product.GetType().Name);
+            }
+
+            // Wait for user
+
+            Console.ReadKey();
+        }
+    }
+
+    
+    // The 'Product' abstract class
+
+    
+    abstract class Product
+
+    {
+
+    }
+
+   
+    // A 'ConcreteProduct' class
+        
+    class ConcreteProductA : Product
+
+    {
+    }
+
+   
+    // A 'ConcreteProduct' class
+
+    
+    class ConcreteProductB : Product
+
+    {
+    }
+        
+    // The 'Creator' abstract class
+        
+    abstract class Creator
+
+    {
+        public abstract Product FactoryMethod();
+    }
+
+  
+    // A 'ConcreteCreator' class
+
+   
+    class ConcreteCreatorA : Creator
+
+    {
+        public override Product FactoryMethod()
+        {
+            return new ConcreteProductA();
+        }
+    }
+
+   
+    // A 'ConcreteCreator' class
+
+   
+    class ConcreteCreatorB : Creator
+
+    {
+        public override Product FactoryMethod()
+        {
+            return new ConcreteProductB();
+        }
+    }
+}
+
+
+
+
+singleton
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace singleton
+{
+    
+    /// MainApp startup class 
+
+    /// Singleton Design Pattern.
+
+   
+    class MainApp
+
+    {
+        // Entry point into console application.
+    
+        static void Main()
+        {
+            // Constructor is protected -- cannot use new
+
+            Singleton s1 = Singleton.Instance();
+            Singleton s2 = Singleton.Instance();
+
+            // Test for same instance
+
+            if (s1 == s2)
+            {
+                Console.WriteLine("Objects are the same instance");
+            }
+
+            // Wait for user
+
+            Console.ReadKey();
+        }
+    }
+
+   
+    /// The 'Singleton' class
+
+       class Singleton
+
+    {
+        private static Singleton _instance;
+
+        // Constructor is 'protected'
+
+        protected Singleton()
+        {
+        }
+
+        public static Singleton Instance()
+        {
+            // Uses lazy initialization.
+
+            
+            if (_instance == null)
+            {
+                _instance = new Singleton();
+            }
+
+            return _instance;
+        }
+    }
+}
+
+
+
+adaptor
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+
+namespace adaptor
+{
+    
+    // MainApp startup class 
+
+    // Adapter Design Pattern.
+
+   
+    class MainApp
+
+    {
+        
+        // Entry point into console application.
+
+        
+        static void Main()
+        {
+            // Create adapter and place a request
+
+            Target target = new Adapter();
+            target.Request();
+
+            // Wait for user
+
+            Console.ReadKey();
+        }
+    }
+
+    
+    /// The 'Target' class
+
+   
+    class Target
+
+    {
+        public virtual void Request()
+        {
+            Console.WriteLine("Called Target Request()");
+        }
+    }
+
+   
+    /// The 'Adapter' class
+
+  
+    class Adapter : Target
+
+    {
+        private Adaptee _adaptee = new Adaptee();
+
+        public override void Request()
+        {
+            // Possibly do some other work
+
+            //  and then call SpecificRequest
+
+            _adaptee.SpecificRequest();
+        }
+    }
+
+       // The 'Adaptee' class
+           
+    class Adaptee
+
+    {
+        public void SpecificRequest()
+        {
+            Console.WriteLine("Called SpecificRequest()");
+        }
+    }
+}
+
+ 
