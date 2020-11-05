@@ -1,0 +1,47 @@
+
+                                            Export
+              
+export let age: number = 20;
+export class Emplyee {
+    empCode: number;
+    empName: string;
+    constructor(name: string, code: number) {
+        this.empName = name;
+        this.empCode = code;
+    }
+
+    display() {
+        console.log("employee code" + this.empCode + "employee name" + this.empName);
+    }
+
+}
+
+let companyname: string = "xyz";
+
+
+
+                                                 Import
+
+
+
+//import { app } from "C:\angularpracticecodes\typesciprt\modules\modules\app";
+
+import * as Emp1 from "C:/angularpracticecodes/typesciprt/modules/modules/Employee";
+console.log(Emp1.age);
+
+let obj = new Emp1.Emplyee('ramya', 1);
+obj.display();
+
+
+
+
+
+
+
+
+
+
+
+
+
+

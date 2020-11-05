@@ -1,0 +1,34 @@
+function getArray<T>(items: T[]): T[] {
+    return new Array<T>().concat(items);
+}
+let num = getArray<number>([100, 200, 300]);
+let str = getArray<string>(["hii", "good", "morning"]);
+
+num.push(500);
+str.push("ramya");
+
+
+function displaytype<T>(id: T, name: string): void {
+    console.log("datatype of id" + typeof (id) + "datatype of name" + typeof (name));
+
+}
+
+displaytype<number>(1, "ramya");
+displaytype<string>("s34e", "ram");
+
+class student<T, U>
+{
+    private id: T;
+    private name: U;
+    set(id: T, name: U): void {
+        this.id = id;
+        this.name = name;
+    }
+    display(): void {
+        console.log("id=${this.id},Name=${this.name}");
+    }
+}
+
+let s = new student<number, string>();
+s.set(1, "gnana");
+s.display();
