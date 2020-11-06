@@ -1,0 +1,109 @@
+
+<div style="text-align:center">
+    <div class="jumbotron">
+        <h1>{{welcome to angular}}</h1>
+        <h3>{{finally its opening uffff...!!!}}</h3>
+        <h3>{{hello angular}}</h3>
+        
+    </div>
+
+
+
+<div ng-app="" ng-init="firstName='John'">
+
+<p>Name: <input type="text" ng-model="firstName"></p>
+<p>You wrote: {{ firstName }}</p>
+
+</div>
+
+
+
+<div data-ng-app="" data-ng-init="quantity=1;price=5">
+
+<h2>Cost Calculator</h2>
+
+Quantity: <input type="number" ng-model="quantity">
+Price: <input type="number" ng-model="price">
+
+<p><b>Total in dollar:</b> {{quantity * price}}</p>
+
+</div>
+
+
+
+<div ng-app="" ng-init="names=['ramya','pm','goodmorning']">
+  <p>Looping with ng-repeat:</p>
+  <ul>
+    <li ng-repeat="x in names">
+      {{ x }}
+    </li>
+  </ul>
+</div>
+
+</div>
+<h3>Here are some links to help you start: </h3>
+<ul>
+    <li>
+        <h4><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h4>
+    </li>
+    <li>
+        <h4><a target="_blank" rel="noopener" href="https://www.google.com">Welcome to google</a></h4>
+    </li>   
+    <li>
+        <h4><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h4>
+    </li>
+    <li>
+        <h4><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h4>
+    </li>
+    <li>
+        <h4><a target="_blank" rel="noopener" href="http://getbootstrap.com/docs/4.1/getting-started/introduction/">Bootstrap</a></h4>
+    </li>
+</ul>
+<h3>List of Books in Library</h3>
+<ol>
+    <li>C Programming</li>
+    <li>R Programming</li>
+    <li>Python Programming</li>
+    <li>Java Programming</li>
+    <li>Data Structures</li>
+    <li>.Net Programming</li>
+    <li>C Sharp</li>
+    <li>Angular</li>
+</ol>
+
+<ul>
+    
+        <li *ngfor ="let number of number">{{number}}</li>
+
+</ul>
+
+<ul>
+
+    <li *ngfor="let number of number">{{array}}</li>
+
+</ul>
+
+
+
+
+
+
+ts file
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent {
+    title = 'Welcome to Angular';
+    subtitle = '.NET Core + Angular CLI v7 + Bootstrap & FontAwesome + Swagger Template';
+
+    numbers : number[] = [1, 2, 3];
+
+}
+
+
+

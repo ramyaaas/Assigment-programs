@@ -1,0 +1,15 @@
+function display() {
+    console.log("Hello Ramya!");
+} 
+
+display();
+let Multiply = function (x: number, y: number): number {
+    return x * y;
+};
+console.log(Multiply(5, 3));  
+
+function displayName(name: string, greeting: string = "Hello"): string {
+    return greeting + ' ' + name + '!';
+}
+console.log(displayName('Ramya')); 
+console.log(displayName('Ramya', 'Hi'));  
