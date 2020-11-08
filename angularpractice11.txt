@@ -1,0 +1,187 @@
+
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+   
+ 
+})  
+
+export class AppComponent {
+
+  n1: number = 10;    
+    n2: number = 20;  
+    
+  
+  items: item[] = [{name: 'Kaumudi', id: 15}, {name: 'Rekha', id: 22}, {name: 'Ramya', id: 31}];  
+  selectedValue: string= 'priscilla'; 
+  title = 'AngularDirectives';
+  subtitle = 'friends';
+  student : any[]=[
+    {Name:'pranith',Branch:'CSE', Marks:'80'},
+  {Name:'sachin',Branch:'EC', Marks:'50'},
+  {Name:'Nikhil',branch:'IT', Marks:'90'},
+  {Name:'Rainbow',Branch:'ECE', Marks:'700'},
+]
+
+}
+class item {  
+  name: string;  
+  id: number;  
+}  
+ 
+class student
+{
+  Name:string;
+  Branch:string;
+  Marks:Number;
+}
+
+
+
+
+
+
+
+<p>angular!</p>
+<p *ngIf="condition">  
+    condition is true and ngIf is true.  
+</p>  
+<p *ngIf="!condition">  
+    condition is false and ngIf is false.  
+</p>
+
+
+
+import { Component, OnInit} from '@angular/core';
+
+@Component({
+  selector: 'app-sweety',
+ 
+  template: ` <button (click)="show = !show">{{show ? 'hide' : 'show'}}</button>  
+    show = {{show}}  
+    <br>  
+    <div *ngIf="show">Text to show</div> <br>
+ <button (click)="click = !click">{{click ? 'hide' : 'click'}}</button>  
+    click = {{click}}  
+    <br>  
+    <div *ngIf="click; else elseBlock">Text to show</div>  
+    <ng-template #elseBlock>Alternate text while primary text is hidden</ng-template>`
+ 
+
+    
+})
+
+export class angularComponent implements OnInit {
+  show: boolean = true;  
+  click: boolean = true;  
+   
+  constructor() { }
+
+  ngOnInit(): void {
+  }
+
+}
+
+
+
+
+
+<p>Two way binding!</p>
+<h2>Two-way Binding Example</h2>    
+   <input [(ngModel)]="fullName" /> <br/><br/>    
+<p> {{fullName}} </p>  
+© 2020 practice_dxc.
+
+
+import 'zone.js/dist/zone-testing';
+import { getTestBed } from '@angular/core/testing';
+import {
+  BrowserDynamicTestingModule,
+  platformBrowserDynamicTesting
+} from '@angular/platform-browser-dynamic/testing';
+
+declare const require: {
+  context(path: string, deep?: boolean, filter?: RegExp): {
+    keys(): string[];
+    <T>(id: string): T;
+  };
+};
+
+//initialize Angular testing environment.
+
+getTestBed().initTestEnvironment(
+  BrowserDynamicTestingModule,
+  platformBrowserDynamicTesting()
+);
+
+//find all the tests.
+
+const context = require.context('./', true, /\.spec\.ts$/);
+// And load the modules.
+context.keys().map(context);
+
+
+
+
+<h1>{{wonders}}</h1>
+
+  <div class='panel panel-primary'>  
+    <div class='panel-heading'>  
+        {{angular}}  
+    </div>   
+    <div class='panel-body'>  
+        <div class='table-responsive'>  
+            <table class='table'>  
+                <thead>  
+                    <tr>  
+                        <th>Title</th>  
+                        <th>State</th>  
+                        <th>famous_monument</th>  
+                    </tr>  
+                </thead>  
+                <tbody>  
+                    <tr *ngFor="let movie of movies;">  
+                        <td>{{country.Country}}</td>  
+                        <td>{{country.State}}</td>  
+                        <td>{{country.Capital}}</td>  
+                        <td>{{country.famous_monument}}</td>  
+                    </tr>  
+                </tbody>  
+            </table>  
+        </div>  
+    </div>  
+    
+<app-test></app-test>
+
+<router-outlet></router-outlet>
+
+
+
+
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.css']
+})
+export class AppComponent  {
+  title = 'angularexample';
+  country: country1[] =[  
+    {Country:'China',State:'asiapacific-region',famous_monument:'Great wall of china'},  
+    {Country:'India',State:'uttarpradesh',famous_monument:'Taj Mahal'},  
+    {Country:'mexico',State:'yucatan',famous_monument:'chchen itza el castillo'},  
+    {Country:'jordan',State:'petra',famous_monument:'petra'},  
+   
+]  
+}   
+class Movie {  
+title : string;  
+director : string;  
+cast : string;  
+releaseDate : string;  
+}
