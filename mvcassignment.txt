@@ -1,0 +1,86 @@
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Welcome To Music World</h1>
+    <p>Select The Music</p>
+    <p><a href="Classic" class="btn btn-primary btn-lg">classic&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a><a href="Rock" class="btn btn-primary btn-lg">Rock</a><a href="Romantic" class="btn btn-primary btn-lg">Romantic</a><a href="Pop" class="btn btn-primary btn-lg">Pop</a></p>
+</div>
+<div class="jumbotron">
+    <table>
+        <caption>Registration Form</caption>
+        <tr>
+            <td><label for="name">Username:</label></td>
+            <td><input type="text" class="form-control" id="text"></td>
+        </tr>
+        <tr>
+            <td><label for="pwd">Password:</label></td>
+            <td><input type="password" class="form-control" id="pwd"></td>
+        </tr>
+        <tr>
+            <td><label for="pwd">ConfirmPassword:</label></td>
+            <td><input type="password" class="form-control" id="pwd"></td>
+        </tr>
+        <tr>
+            <td><label for="email">Mail Id:</label></td>
+            <td><input type="email" class="form-control" id="email"></td>
+        </tr>
+        <tr>
+            <td><lable for="gender">Select Gender:</lable></td>
+            <td> <label class="radio-inline"><input type="radio" name="optradio" id="gender">Male</label>
+            <label class="radio-inline"><input type="radio" name="optradio" id="gender" />Female</label></td>
+        </tr>
+        <
+        <tr>
+            <td><button type="submit" class="btn btn-primary">Submit</button></td>
+        </tr>
+
+    </table>
+    
+</div>
+<div class="jumbotron">
+    <h3>Table example</h3>
+    <table class="table-bordered">
+        <thead>
+            <tr>
+                <th>Classic</th>
+                <th>Rock</th>
+                <th>Romantic</th>
+                <th>Pop</th>
+            </tr>
+        </thead>
+        <tr>
+            <td>cccccc</td>
+            <td>rrrrrrrrrr</td>
+            <td>rdfrrrrrrrrr</td>
+            <td>ppppppppp</td>
+        </tr>
+    </table>
+</div>
+<div class="form-group">
+    <label for="selection">Select list:</label>
+    <select class="form-control" id="sel1">
+        <option>Classic</option>
+        <option>Pop</option>
+        <option>Rock</option>
+        <option>Romantic</option>
+    </select>
+    </div>
+    <div class="jumbotron">
+    <h3>Radio buttons example</h3>
+    <label class="radio-inline"><input type="radio" name="optradio" checked>Classic</label>
+    <label class="radio-inline"><input type="radio" name="optradio">Pop</label>
+    <label class="radio-inline"><input type="radio" name="optradio">Romantic</label>
+    <label class="radio-inline"><input type="radio" name="optradio">Rock</label>
+    </div>
+    <div class="jumbotron">
+        <h3>Checkbox example</h3>
+        <label class="checkbox-inline"><input type="checkbox" value="">Classic</label>
+        <label class="checkbox-inline"><input type="checkbox" value="">Pop</label>
+        <label class="checkbox-inline"><input type="checkbox" value="">Romantic</label>
+        <label class="checkbox-inline"><input type="checkbox" value="">Rock</label>
+    </div>
+
+
+
