@@ -1,0 +1,68 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+namespace Layouts.Controllers
+{
+    
+                           Controller
+
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        public ActionResult About()
+        {
+            ViewBag.Message = "Your application description page.";
+
+            return View();
+        }
+
+        public ActionResult Contact()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+    }
+}
+
+
+                                                  Shared layout
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MY Layout example</title>
+    @RenderSection("head", required: false)
+    
+</head>
+<body style="background-color:deepskyblue">
+    <div class="jumbotron">
+        <h1>ASP.NET</h1>
+        <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
+        <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    </div>
+    @RenderBody()
+
+
+</body>
+</html>
+
+
+                                                    Index
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/shared1/_Layout1.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>Welcome to mvc asp.net layout </p>
+<p>layouts are user to share the common layout among the different views</p>

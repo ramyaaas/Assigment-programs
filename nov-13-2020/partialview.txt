@@ -1,0 +1,40 @@
+
+@{
+    ViewBag.Title = "Index";
+    int n = 10;
+}
+
+<h2>Index</h2>
+@for(int i=0;i<n;i++)
+{
+    @Html.Partial("_Card")
+}
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace PartialView1.Models
+{
+    public class Employee
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Email { get; set; }
+    }
+}
+
+<h1>hello i am for loop</h1>
+<div class="row" style="border:2px solid">
+    <div class="col-lg-6">
+        <h2>Name-Ramya</h2>
+        <p>Id-Id</p>
+        <p>Email-ramya@gmail.com</p>
+    </div>
+    <div class="col-lg-6">
+        <p>desscriptiondesscriptiondesscriptiondesscriptiondesscriptiondesscriptiondesscriptiondesscriptiondesscriptiondesscriptiondesscriptiondesscriptiondesscriptiondesscription</p>
+    </div>
+</div>
