@@ -1,0 +1,66 @@
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body style="align-items:center;background-color:pink">
+      <p style="align-content:center">Registration form</p>
+        <div style="background-color:deepskyblue;color:black;align-content:center">
+            <div>
+                @Html.Label("Enter the user name")
+                @Html.TextBox("textbox1")
+            </div>
+            <div>
+                @Html.Label("Enter the Password")
+                @Html.TextBox("textbox2")
+            </div>
+            <div>
+                @Html.Label("Select Gender")
+                <label>male</label>@Html.RadioButton("gender", "male", true, new { id = "male" })
+                <label>female</label>@Html.RadioButton("gender", "female", true, new { id = "female" })
+            </div>
+            <div>
+                @Html.Label("Address")
+                @Html.TextArea("text1")
+            </div>
+            <div>
+                @Html.Label("hobbies")
+                <label>Singing</label>@Html.CheckBox("check1")
+                <label>Danceing</label>@Html.CheckBox("check2")
+                <label>Reading</label>@Html.CheckBox("check3")
+                <label>playing</label>@Html.CheckBox("check4")
+            </div>
+            <div>
+                @Html.Label("select courses")
+                @Html.DropDownList("courses", new List<SelectListItem> {
+                        new SelectListItem {Text="Select courses",Value="-1" },
+                        new SelectListItem {Text="AsP.Net",Value="1" },
+                        new SelectListItem {Text="Java", Value="2" },new SelectListItem {Text="Database", Value="3" },
+                        new SelectListItem {Text="Python", Value="4" },new SelectListItem {Text="MVC", Value="5" },
+                        }, new { @class = "custom-select" })
+
+            </div>
+            <div>
+                @Html.Label("select skills")
+                @Html.DropDownList("skills", new List<SelectListItem> {
+                        new SelectListItem {Text="Select skills",Value="-1" },
+                        new SelectListItem {Text="communication",Value="1" },
+                        new SelectListItem {Text="Presentation", Value="2" },new SelectListItem {Text="Drawing", Value="3" },
+                        new SelectListItem {Text="Reading", Value="4" }
+                        }, new { @class = "custom-select" })
+            </div>
+            <div>
+                <input type="button" value="Submit" name="Submit" />
+            </div>
+        
+
+    </div>
+</body>
+</html>

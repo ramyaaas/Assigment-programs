@@ -1,0 +1,35 @@
+@model Helpers.Models.strongly
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index2</title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm("Myform"))
+        {
+            @Html.LabelFor(x => x.name)
+            @Html.TextBoxFor(x => x.name)
+            <br>
+            <br />
+            @Html.LabelFor(x => x.address)
+            @Html.TextBoxFor(x => x.address)
+
+            <br />
+            @Html.LabelFor(x => x.isemployee)
+            @Html.CheckBoxFor(x => x.isemployee)
+        }
+        <input type="button" name="submit" />
+
+
+
+    </div>
+</body>
+</html>

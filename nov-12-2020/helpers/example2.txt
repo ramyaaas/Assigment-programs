@@ -1,0 +1,31 @@
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index3</title>
+</head>
+<body>
+    <div> 
+        @helper myhelper(string[] s)
+            {
+                  <ol>
+                      @foreach(var i in s)
+                      {
+                          <li>@i</li>
+                      }
+                  </ol>
+
+            }
+    </div>
+    <div>
+        <h2>List of students</h2>
+        @myhelper(new string[] { "ramya","ram","lakshmi","gnana","kaumudi"})
+    </div>
+</body>
+</html>

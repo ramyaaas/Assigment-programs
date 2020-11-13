@@ -1,0 +1,34 @@
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index3</title>
+</head>
+<body>
+    <div> 
+        <h1>Cube of numbers</h1>
+        @helper myhelper(string str)
+            {
+           <ol>
+            @for(var i = 0; i < str.Length; i++)
+            {
+                <li>@str[i]</li>
+            }
+
+            </ol>
+                  
+            }
+    </div>
+    <div>
+        <h2>characters of the given string are</h2>
+       @myhelper("ramya")
+        
+    </div>
+</body>
+</html>

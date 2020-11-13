@@ -1,0 +1,23 @@
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index1</title>
+</head>
+<body>
+    <div> 
+        @Html.ActionLink("clickme","Mymethod")
+    </div>
+    <div><label>Enter FullName:</label> @Html.TextBox("textbox1")</div>
+    <div><label>Enter LastName:</label>@Html.TextBox("textbox2")</div>
+    <div><label>Enter Password:</label>@Html.Password("pass1")</div>
+    <div><label>Gender:</label>@Html.RadioButton("Male","radio1")  @Html.RadioButton("Male","radio2")</div>
+    <div>@Html.CheckBox("check")<label>Accept the terms and conditions</label></div>
+</body>
+</html>

@@ -1,0 +1,71 @@
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index5</title>
+</head>
+<body>
+    <div>
+        <label>Username:</label>@Html.TextBox("textbox1")
+    </div><br />
+
+
+    <div>@Html.Password("Password") </div><br />
+    <div><label>male</label>@Html.RadioButton("gender", "male", true, new { id = "male" })</div>
+    <div><label>female</label>@Html.RadioButton("gender", "female", true, new { id = "female" })</div>
+
+
+
+
+
+
+    <div>@Html.BeginForm("beginform1")</div>
+
+    @using (Html.BeginForm("my form"))
+    {
+        <label>Fullname</label>
+    }
+
+    <div>@Html.Hidden("hidden1")</div>
+
+    <div>@Html.TextArea("Profile", new { cols = 60, rows = 10 })</div>
+    <br />
+
+    @Html.Hidden("EmployeeId", "")<br />
+
+    @Html.ListBox("Skills",new List<SelectListItem> {
+    new SelectListItem { Text="ASP.NET",Value="1"},
+    new SelectListItem { Text="MVC",Value="2"},
+    new SelectListItem { Text="SQL Server",Value="3"},
+    new SelectListItem { Text="Angular",Value="4"},
+    new SelectListItem { Text="Web API",Value="5"}
+},new { @class="form-control"})
+
+    <br /><br />
+
+    @Html.DropDownList("Gender", new List<SelectListItem> {
+                    new SelectListItem {Text="Select Gender",Value="-1" },
+                    new SelectListItem {Text="Male",Value="1" },
+                    new SelectListItem {Text="Female", Value="2" }
+                    }, new { @class = "custom-select" }))
+
+    <br />
+
+
+
+
+
+
+    <div><label>Accept terms and conditions</label>@Html.CheckBox("checkbox1") </div><br />
+
+    <button>Submit</button>
+
+
+</body>
+</html>

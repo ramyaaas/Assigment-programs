@@ -1,0 +1,40 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+namespace Viewdatabadtempdata.Controllers
+{
+    public class HomeController : Controller
+    {
+        // GET: Home
+        public ActionResult Index()
+        {
+            ViewData["username"] = "ramya";
+            ViewData["check"] = 1;
+            ViewData["age"] = 22;
+            return View();
+        }
+
+        public ActionResult My()
+        {
+            ViewBag.username = "ramya";
+            ViewBag.check = 1;
+            ViewBag.age = 22;
+            return View();
+
+        }
+        public ActionResult Index1()
+        {
+            TempData["username"] = "ramya";
+           
+            return RedirectToAction("Index2");
+        }
+
+        public ActionResult Index2()
+        {
+            return View();
+        }
+    }
+}

@@ -1,0 +1,13 @@
+Public ViewResult Index()
+{
+ViewBag.Message=”Good Morning”;
+ViewBag.Date=DateTime.Now;
+Return View();
+}
+
+@{
+ViewBag.Title=”Index”;
+}
+<h2>Index</h2>
+Greeting from us:@ViewBag.Message
+Today date is @ViewBag.Date

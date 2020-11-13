@@ -1,0 +1,128 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+namespace Viewdatabadtempdata.Controllers
+{
+    public class ExampleController : Controller
+    {
+        // GET: Example
+        public ActionResult Index3()
+        {
+            List<string> Courses = new List<string>();
+            Courses.Add("Java");
+            Courses.Add("J2EE");
+            Courses.Add("dotnet");
+            Courses.Add("Asp.net");
+            ViewData["Courses"] = Courses;
+            return View();
+        }
+
+        public ActionResult Index4()
+        {
+            List<string> flowers = new List<string>();
+            flowers.Add("Rose");
+            flowers.Add("Jasmine");
+            flowers.Add("Lily");
+            flowers.Add("Hybyscus");
+            ViewBag.data = flowers;
+            return View();
+        }
+        public ActionResult Index5()
+        {
+            List<string> colors = new List<string>();
+            colors.Add("Rose");
+            colors.Add("Jasmine");
+            colors.Add("Lily");
+            colors.Add("Hybyscus");
+            TempData["colors"] = colors;
+            return View();
+        }
+    }
+}
+
+
+
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index3</title>
+</head>
+<body>
+    <div>
+        <h2>List of Courses</h2>
+        <ul>
+            @{
+                foreach (var Courses in ViewData["Courses"] as List<string>)
+                {
+                    <li> @Courses</li>
+                }
+            }
+        </ul>
+    </div>
+</body>
+</html>
+
+
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index4</title>
+</head>
+<body>
+    <div>
+        <h2>List of flowers</h2>
+        <ul>
+            @{
+                foreach (var Courses in ViewBag.Courses)
+                {
+                    <li> @Courses</li>
+                }
+            }
+        </ul>
+    </div>
+</body>
+</html>
+
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index5</title>
+</head>
+<body>
+    <div>
+        <h2>List of Colors</h2>
+        <ul>
+            @{
+                foreach (var Colors in TempData["colors"] as List<string>)
+                {
+                    <li> @Colors</li>
+                }
+            }
+        </ul>
+    </div>
+</body>
+</html>
