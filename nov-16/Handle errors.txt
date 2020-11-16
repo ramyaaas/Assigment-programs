@@ -1,0 +1,58 @@
+web config code
+
+<customErrors mode="On"></customErrors>
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+namespace example2errors.Controllers
+{
+    public class ErrorController : Controller
+    {
+        // GET: Error
+        public ActionResult Index()
+        {
+            return View();
+        }
+    }
+}
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+namespace example2errors.Controllers
+{
+    [HandleError]
+    public class HomeController : Controller
+    {
+        // GET: Home
+        
+        public ActionResult Index1()
+        {
+            throw new Exception("this is a exception");
+        }
+
+        public ActionResult About()
+        {
+            throw new Exception("this is a exception");
+        }
+    }
+}
+
+
+
+@{
+    ViewBag.Title = "Error";
+}
+<h2>Error</h2>
+
+<h2>Oops Something Went Wrong</h2>
+

@@ -1,0 +1,79 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using Myapp.Models;
+using MYapp.Db.DBoperations;
+
+namespace Example1.Controllers
+{
+    public class HomeController : Controller
+    {
+        // GET: Home
+        EmployeesRepository repository = null;
+        public HomeController()
+        {
+            repository = new EmployeesRepository();
+        }
+
+        public ActionResult Create()
+        {
+            return View();
+        }
+        public ActionResult CreateEmployee()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult CreateEmployee(EmployeeModels model)
+        {
+            if(ModelState.IsValid)
+            {
+                int id = repository.AddEmployee(model);
+                if(id>0)
+                {
+                    ModelState.Clear();
+                    ViewBag.Issuccess = "Data Added";
+                }
+            }
+          
+            return View();
+        }
+
+        public ActionResult GetAllRecords()
+        {
+            var result = repository.GetAllEmployees();
+            return View(result);
+        }
+
+
+        public ActionResult details(int id)
+        {
+            var employee = repository.GetEmployee(id);
+            return View(employee);
+        }
+
+        public ActionResult edit(int id)
+        {
+            var employee = repository.GetEmployee(id);
+            return View(employee);
+        }
+        [HttpPost]
+        public ActionResult edit(EmployeeModels model)
+        {
+
+            if (ModelState.IsValid)
+            {
+                repository.UpdateEmployee(model.Id, model);
+                return RedirectToAction("GetAllRecords");
+            }
+            return View();
+        }
+        public ActionResult delete(int id)
+        {
+            repository.DeleteEmployee(id);
+            return RedirectToAction("GetAllRecords");
+        }
+    }
+}

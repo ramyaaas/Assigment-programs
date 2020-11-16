@@ -1,0 +1,122 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Myapp.Models;
+
+namespace MYapp.Db.DBoperations
+{
+    public class EmployeesRepository
+    {
+        public int AddEmployee(EmployeeModels model)
+        {
+            using (var context = new EmployeeDBEntities1()) 
+            {
+                Employee emp = new Employee()
+                {
+                    FirstName = model.FirstName,
+                    LastName = model.LastName,
+                    Email = model.Email,
+                    Code = model.Code
+                };
+                context.Employee.Add(emp);
+                context.SaveChanges();
+                return emp.Id;
+            }
+        }
+
+        public List<EmployeeModels> GetAllEmployees()
+        {
+            using (var context = new EmployeeDBEntities1())
+            {
+                var result = context.Employee.Select(x => new EmployeeModels()
+                {
+                    Id = x.Id,
+                    AddressId = x.AddressId,
+                    Email = x.Email,
+                    FirstName = x.FirstName,
+                    LastName = x.LastName,
+                    Code = x.Code,
+                    address = new AddressModel()
+                    {
+                        Id = x.Address.Id,
+                        Details = x.Address.Details,
+                        Country = x.Address.Country,
+                        State = x.Address.State
+
+
+
+                    }
+
+                }).ToList();
+                return result;
+            }
+        }
+
+        public EmployeeModels GetEmployee(int id)
+        {
+            using (var context = new EmployeeDBEntities1())
+            {
+                var result = context.Employee.Where(x => x.Id == id).Select(x => new EmployeeModels()
+                {
+                    Id = x.Id,
+                    AddressId = x.AddressId,
+                    Email = x.Email,
+                    FirstName = x.FirstName,
+                    LastName = x.LastName,
+                    Code = x.Code,
+                    address = new AddressModel()
+                    {
+                        Id = x.Address.Id,
+                        Details = x.Address.Details,
+                        Country = x.Address.Country,
+                        State = x.Address.State
+
+
+
+                    }
+
+                }).FirstOrDefault();
+                return result;
+            }
+        }
+
+        public bool UpdateEmployee(int id,EmployeeModels model)
+        {
+            using (var context = new EmployeeDBEntities1())
+            {
+                var employee = context.Employee.FirstOrDefault(x => x.Id == id);
+                if(employee!=null)
+                {
+                    employee.FirstName = model.FirstName;
+                    employee.LastName = model.LastName;
+                    employee.Email = model.Email;
+                    employee.Code = model.Code;
+                }
+                context.SaveChanges();
+                return true;
+            }
+        }
+
+        public bool DeleteEmployee(int id)
+        {
+            using (var context = new EmployeeDBEntities1())
+            {
+                var employee = context.Employee.FirstOrDefault(x => x.Id == id);
+                if (employee != null)
+                {
+                    context.Employee.Remove(employee);
+                    context.SaveChanges();
+                    return true;
+                }
+                return false;
+                
+            }
+        }
+
+
+
+
+    }
+}
