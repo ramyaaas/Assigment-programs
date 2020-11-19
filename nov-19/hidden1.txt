@@ -1,0 +1,41 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="hidden1.aspx.cs" Inherits="WebApplication1.hidden1" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+
+            <asp:HiddenField ID ="HiddenFieldDemo" runat ="server"/>
+            <label id ="lblTime" runat="server"></label>
+        </div>
+    </form>
+</body>
+</html>
+
+
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace WebApplication1
+{
+    public partial class hidden1 : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            HiddenFieldDemo.Value = DateTime.Now.ToString();
+            lblTime.InnerText= Convert.ToString(HiddenFieldDemo.Value);
+        }
+    }
+}

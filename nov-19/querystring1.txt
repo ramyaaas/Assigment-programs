@@ -1,0 +1,134 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="WebForm1.aspx.cs" Inherits="WebApplication3.WebForm1" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <style type="text/css">
+        .auto-style2 {
+            width: 236px;
+        }
+        .auto-style3 {
+            width: 169px;
+        }
+        .auto-style5 {
+            width: 169px;
+            height: 56px;
+        }
+        .auto-style6 {
+            width: 236px;
+            height: 56px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <br />
+            <br />
+            <table style="border:1px solid;background-color:lavenderblush">
+                <tr>
+                    <td class="auto-style3">Usename</td>
+                    <td class="auto-style2">
+                        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style3">Password</td>
+                    <td class="auto-style2">
+                        <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="auto-style5">
+                        <asp:Button ID="Button1" runat="server" Text="Login" OnClick="Button1_Click" />
+                        <asp:Button ID="Button2" runat="server" Text="reset" OnClick="Button2_Click" />
+                    </td>
+                    <td>
+                        <asp:Label ID="Label1" runat="server" ForeColor="#FF3300"></asp:Label>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</body>
+</html>
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace WebApplication3
+{
+    public partial class WebForm1 : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack) TextBox1.Focus();
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            if (TextBox1.Text == "admin" && TextBox2.Text == "admin")
+            {
+                Response.Write("login successfull");
+                Response.Redirect("Homepage.aspx?Name=" + TextBox1.Text+ "&pwd="+TextBox2.Text);
+            }
+               
+            else
+                Label1.Text = "Invalid login credentials";
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
+
+
+
+
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Homepage.aspx.cs" Inherits="WebApplication3.Homepage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+
+        
+        </div>
+    </form>
+</body>
+</html>
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace WebApplication3
+{
+    public partial class Homepage : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            string name = Request.QueryString["Name"];
+            Response.Write("hello  "+name+" welcome to our site");
+        }
+    }
+}

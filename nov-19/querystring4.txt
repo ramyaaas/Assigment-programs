@@ -1,0 +1,72 @@
+<%@ Page Language="C#" %>
+
+<!DOCTYPE html>
+
+<script runat="server">
+
+</script>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>asp.net QueryString example: how to use QueryString</title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <h2 style="color:Navy">QueryString Example</h2>
+        <asp:HyperLink 
+            ID="HyperLink1"
+            runat="server"
+            NavigateUrl="~/Image.aspx?ImageID=1&ImageName=Elephant"
+            Text="Test QueryString"
+            >
+        </asp:HyperLink>
+    </div>
+    </form>
+</body>
+</html>
+Image.aspx
+
+<%@ Page Language="C#" %>
+
+<!DOCTYPE html>
+
+<script runat="server">
+    protected void Page_Load(object sender, System.EventArgs e) {
+        string ID = Request.QueryString["ImageID"];
+        string Name = Request.QueryString["ImageName"];
+        Label1.Text = "ImageID: "+ ID;
+        Label2.Text = "Image name: "+ Name;
+        Image1.ImageUrl = "~/Images/"+Name+".jpg";
+    }
+</script>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>asp.net QueryString example</title>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+        <h2 style="color:Red">QueryString Example: Image View</h2>
+        <asp:Label 
+            ID="Label1"
+            runat="server"
+            Font-Size="Large"
+            ForeColor="SeaGreen"            
+            >
+        </asp:Label>
+        <br />
+        <asp:Label 
+            ID="Label2"
+            runat="server"
+            Font-Size="Large"
+            ForeColor="SeaGreen"            
+            >
+        </asp:Label>
+        <br />
+        <asp:Image ID="Image1" runat="server" />
+    </div>
+    </form>
+</body>
+</html>

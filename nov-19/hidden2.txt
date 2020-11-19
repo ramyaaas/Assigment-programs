@@ -1,0 +1,51 @@
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="hidden2.aspx.cs" Inherits="WebApplication1.hidden2" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <asp:HiddenField ID="hiddenField" runat="server"/>
+            <asp:Button ID="button" runat="server" Text="Hiddenvalue" onclick="button_Click" />
+
+            <br />
+            <br />
+            <br />
+
+            <asp:Label  ID="label" runat="server" Font-Bold="True" ForeColor="#000099"/>
+        </div>
+    </form>
+</body>
+</html>
+
+
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace WebApplication1
+{
+    public partial class hidden2 : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void button_Click(object sender, EventArgs e)
+        {
+            if(hiddenField.Value ==String.Empty)
+                hiddenField.Value = "101";
+                hiddenField.Value = (Convert.ToInt32(hiddenField.Value)- 1).ToString();
+            label.Text = hiddenField.Value;
+        }
+    }
+}
