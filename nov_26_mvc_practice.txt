@@ -1,0 +1,349 @@
+conftrollers
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+namespace assignment2_helpers.Controllers
+{
+    public class HomeController : Controller
+    {
+        // GET: Home
+        
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        [HttpGet]
+
+        public ViewResult RegistrationForm()
+
+        {
+
+            return View();
+
+        }
+               
+    }
+}
+
+
+class-model
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+
+namespace assignment2_helpers.Models
+{
+    public class Class1
+    {
+        public string UserName { get; set; }
+
+        public string Password { get; set; }
+
+        public string Gender { get; set; }
+
+        public string Address { get; set; }
+
+        public string Hobbies { get; set; }
+
+        public string Courses { get; set; }
+
+        public string Skills { get; set; }
+
+    }
+}
+
+
+view-index
+
+@model assignment2_helpers.Models.Class1
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <h3>Please fill the registration form by clicking on the following registration link</h3>
+        @Html.ActionLink("Registration", "RegistrationForm")
+    </div>
+</body>
+</html>
+
+
+view-register
+
+@model assignment2_helpers.Models.Class1
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>RegistrationForm</title>
+</head>
+<body>
+    <div>
+
+        @using (Html.BeginForm())
+
+        {
+
+            <p>
+
+                Your UserName : @Html.TextBoxFor(x => x.UserName)
+
+            </p>
+
+            <p>
+
+                Your Password : @Html.Password("Password")
+
+            </p>
+
+            <p>
+                Your Gender :<label>Male</label> @Html.RadioButton("Gender", "Male", true, new { id = "Male" })
+                              <label>Female</label>@Html.RadioButton("Gender", "Female", true, new { id = "Female" })
+            </p>
+
+            <p>
+
+                Your Address: @Html.TextArea("Profile", new { cols = 60, rows = 10 })
+
+            </p>
+
+
+            <p>
+
+                Your Hobbies :<label>Singing</label> @Html.CheckBox("Singing")
+                              <label>Crafts</label>@Html.CheckBox("Crafts")
+
+            </p>
+
+
+            <p>
+
+                Select Courses : @Html.DropDownList("Courses", new List<SelectListItem> {
+                                   new SelectListItem {Text="Choose Courses",Value="-1" },
+                                   new SelectListItem {Text="C",Value="1" },
+                                   new SelectListItem {Text="C++",Value="2" },
+                                   new SelectListItem {Text="C#", Value="3" }
+                                   }, new { @class = "custom-select" }))
+
+            </p>
+
+
+            <p>
+                Your Skills : @Html.DropDownList("Skills", new List<SelectListItem> {
+                             new SelectListItem {Text="Choose your skills",Value="-1" },
+                             new SelectListItem {Text="rangoli",Value="1" },
+                             new SelectListItem {Text="singing",Value="2" },
+                             new SelectListItem {Text="dancing", Value="3" }
+                             }, new { @class = "custom-select" }))
+
+
+            </p>
+
+            <input type="submit" value="Register here!" />
+
+        }
+
+    </div>
+</body>
+</html>
+
+
+
+
+
+razor examples
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+        <label>addition of 10 and 20 is : @(10 + 20))</label>
+        <label>product of 10 and 20 is : @(10 * 20))</label>
+        <label>difference of 10 and 20 is : @(10 - 20))</label>
+    </div>
+
+    <div>
+        @{ 
+            var variable = 1;
+        }
+
+    </div>
+
+    <div>
+        @if (variable == 1)
+        {
+            <h2>kaumudi....it is if block</h2>
+
+        }
+        else if (variable == 0)
+        {
+            <h2>else if block.....Ramya</h2>
+        }
+        else
+        {
+            <h2>else block......soumya</h2>
+
+        }
+
+    </div>
+
+    <div>
+        @for(int i = 5; i<=5; i++)
+        {
+            <h1>this is for loop  @i  index</h1>
+        }
+
+    </div>
+
+<div>
+        @for(int i = 5; i<=5; i++)
+        {
+            <h1>loop example  @i  index</h1>
+        }
+
+    </div>
+
+
+</body>
+</html>
+
+
+
+
+DB first approach
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using System.Data.Entity;
+using dbfirstapproach.Models;
+
+namespace dbfirstapproach.Controllers
+{
+    public class HomeController : Controller
+    {
+        // GET: Home
+
+        database1Entities db = new database1Entities();
+        public ActionResult Index()
+        {
+            return View(db.tbllogins);
+        }
+    }
+}
+
+
+
+@model IEnumerable<dbfirstapproach.Models.tbllogin>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Petname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hobbies)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Place)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.spouse)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Petname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hobbies)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Place)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.spouse)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
+
+
+
+
+using System;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+
+namespace dbfirstapproach.Models
+{
+    public partial class database1Model:DbContext
+    {
+        public database1Model():base("name=database1Entities")
+        {
+
+        }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            throw new UnintentionalCodeFirstException();
+        }
+
+        public virtual DbSet<tbllogin> tbllogins { get;set; }
+    }
+}
+
