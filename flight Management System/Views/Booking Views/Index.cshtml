@@ -1,0 +1,96 @@
+@model IEnumerable<FlightReservation.Models.Booking>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Bookings</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table" style="font-size:18px;color:darkblue;font-weight:bold">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BookinId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.passenger.Registration.Id)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.passenger.Registration.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.passenger.Registration.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.passenger.passengerAge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.passenger.Luguagge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.passenger.passengerUIN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.scheduleflight.scheduleFlightNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.source)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.destination)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.scheduleflight.TotalCost)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BookinId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.passenger.Registration.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.passenger.Registration.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.passenger.Registration.Gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.passenger.passengerAge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.passenger.Luguagge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.passenger.passengerUIN)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.scheduleflight.scheduleFlightNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.source)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.destination)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.scheduleflight.TotalCost)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.BookinId }) |
+            @Html.ActionLink("Details", "Details", new { id = item.BookinId }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.BookinId})
+        </td>
+    </tr>
+}
+
+</table>
+<br />
+<br />
+<br />

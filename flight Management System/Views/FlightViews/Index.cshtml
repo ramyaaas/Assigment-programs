@@ -1,0 +1,60 @@
+@model IEnumerable<FlightReservation.Models.FlightDetail>
+
+@{
+
+    Layout = "~/Views/Shared/View.cshtml";
+
+}
+
+<h2><b>List Of Available Flights</b></h2>
+
+
+
+<table class="table"style="font-size:18px;color:black;font-weight:bold">
+    <tr style="font-size:20px;color:darkblue;font-weight:bold">
+        <th>
+            @Html.DisplayNameFor(model => model.FlightId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FlightNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FlightModel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FlightCarrier)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SeatCapacity)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlightId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlightNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlightModel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FlightCarrier)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SeatCapacity)
+            </td>
+            
+        </tr>
+    }
+
+</table>
+<br />
+<br />
+<br />
+<br />
+<br />

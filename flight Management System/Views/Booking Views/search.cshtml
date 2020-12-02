@@ -1,0 +1,122 @@
+@model IEnumerable<FlightReservation.Models.Booking>
+
+@{
+    Layout = "~/Views/Shared/User.cshtml";
+
+
+}
+
+<p style="font-size:20px;color:black;font-weight:bold">
+    @*searching the booking exits if the user enters the booking id*@
+    @using (Html.BeginForm("Search", "Bookings", FormMethod.Get))
+    {<b style="font-size:20px;color:black;font-weight:bold"> Enter Your Booking Id</b>
+        @Html.TextBox("search")  <input type="submit" value=" Search" />
+    }
+</p>
+
+<table class="table" style="font-size:16px;color:black;font-weight:bold">
+    <tr style="font-size:15px;color:darkblue;font-weight:bold">
+        <th>
+            @Html.DisplayNameFor(model => model.BookinId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.passenger.Registration.Id)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.passenger.Registration.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.passenger.Registration.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.passenger.passengerAge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.passenger.Luguagge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.passenger.passengerUIN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.scheduleflight.scheduleFlightNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.source)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.destination)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.scheduleflight.TotalCost)
+        </th>
+        <th></th>
+    </tr>
+    @if (Model.Count() == 0)
+    {
+
+        <tr>
+            <td colspan="5" style="font-size:15px;color:darkblue;font-weight:bold">
+                No record found
+            </td>
+        </tr>
+
+    }
+
+    else
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.BookinId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.passenger.Registration.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.passenger.Registration.UserName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.passenger.Registration.Gender)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.passenger.passengerAge)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.passenger.Luguagge)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.passenger.passengerUIN)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.scheduleflight.scheduleFlightNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.source)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.destination)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.scheduleflight.TotalCost)
+                </td>
+                <td>
+
+                    @Html.ActionLink("Ticket Details", "Details", new { id = item.BookinId }) |
+                    @Html.ActionLink("Cancel", "Delete", new { id = item.BookinId })|
+                    @Html.ActionLink("Edit", "Edit", new { id = item.BookinId})
+                </td>
+            </tr>
+        }
+    }
+
+</table>
+<br /><br /><br /><br />
+<br /><br />
+<br /><br />
+<br /><br />
+<br /><br />
+<br /><br />
+

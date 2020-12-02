@@ -1,0 +1,110 @@
+@model FlightReservation.Models.Booking
+
+@{
+    ViewBag.Title = "Details";
+
+    Layout = "~/Views/Shared/View3.cshtml";
+}
+<style>
+    body {
+       
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-image: url('../../FLIGHT.jpg');
+    }
+</style>
+<body>
+    <div>
+        <h4 style="font-size:25px;color:white;font-weight:bold">Your Booking Details</h4>
+        <hr />
+        @*display the details of particular booking of the user*@
+        <dl class="dl-horizontal">
+            <dt style="font-size:20px;color:white;font-weight:bold">
+                @Html.DisplayNameFor(model => model.BookinId)
+            </dt>
+
+            <dd style="font-size:20px;color:white;font-weight:bold">
+                @Html.DisplayFor(model => model.BookinId)
+            </dd>
+            <dt style="font-size:20px;color:white;font-weight:bold">
+                @Html.DisplayNameFor(model => model.UserId)
+            </dt>
+
+            <dd style="font-size:20px;color:white;font-weight:bold">
+                @Html.DisplayFor(model => model.passenger.Registration.Id)
+            </dd>
+            <dt style="font-size:20px;color:white;font-weight:bold">
+                @Html.DisplayNameFor(model => model.passenger.Registration.UserName)
+            </dt>
+
+            <dd style="font-size:20px;color:white;font-weight:bold">
+                @Html.DisplayFor(model => model.passenger.Registration.UserName)
+            </dd>
+
+            <dt style="font-size:20px;color:white;font-weight:bold">
+                @Html.DisplayNameFor(model => model.passenger.Registration.Gender)
+            </dt>
+
+            <dd style="font-size:20px;color:white;font-weight:bold">
+                @Html.DisplayFor(model => model.passenger.Registration.Gender)
+            </dd>
+
+            <dt style="font-size:20px;color:white;font-weight:bold">
+                @Html.DisplayNameFor(model => model.passenger.passengerAge)
+            </dt>
+
+            <dd style="font-size:20px;color:white;font-weight:bold">
+                @Html.DisplayFor(model => model.passenger.passengerAge)
+            </dd>
+            <dt style="font-size:20px;color:white;font-weight:bold">
+                @Html.DisplayNameFor(model => model.passenger.passengerAge)
+            </dt>
+
+            <dd style="font-size:20px;color:white;font-weight:bold">
+                @Html.DisplayFor(model => model.passenger.Luguagge)
+            </dd>
+
+            <dt style="font-size:20px;color:white;font-weight:bold">
+                @Html.DisplayNameFor(model => model.passenger.passengerUIN)
+            </dt>
+
+            <dd style="font-size:20px;color:white;font-weight:bold">
+                @Html.DisplayFor(model => model.passenger.passengerUIN)
+            </dd>
+            <dt style="font-size:20px;color:white;font-weight:bold">
+                @Html.DisplayNameFor(model => model.scheduleflight.scheduleFlightNumber)
+            </dt>
+
+            <dd style="font-size:20px;color:white;font-weight:bold">
+                @Html.DisplayFor(model => model.scheduleflight.scheduleFlightNumber)
+            </dd>
+
+            <dt style="font-size:20px;color:white;font-weight:bold">
+                @Html.DisplayNameFor(model => model.source)
+            </dt>
+
+            <dd style="font-size:20px;color:white;font-weight:bold">
+                @Html.DisplayFor(model => model.source)
+            </dd>
+            <dt style="font-size:20px;color:white;font-weight:bold">
+                @Html.DisplayNameFor(model => model.destination)
+            </dt>
+
+            <dd style="font-size:20px;color:white;font-weight:bold">
+                @Html.DisplayFor(model => model.destination)
+            </dd>
+
+        </dl>
+    </div>
+
+    <p style="font-size:15px;color:black;font-weight:bold">
+
+        <input type="button" value="Download Ticket" class="btn btn-primary btn-lg" onclick="Myfunc()" />
+    </p>
+</body>
+@*function to get the alert box when the user wants to download the ticket*@
+<script>
+    function Myfunc() {
+        alert("Press Ctrl+P to save your ticket");
+    }
+</script>

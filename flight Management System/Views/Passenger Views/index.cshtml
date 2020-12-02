@@ -1,0 +1,71 @@
+@model IEnumerable<FlightReservation.Models.passenger>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Registration.Id)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Registration.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Registration.EmailId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.passengerAge)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Registration.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PassengerCount)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Luguagge)
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Registration.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Registration.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Registration.EmailId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.passengerAge)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Registration.Gender)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PassengerCount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Luguagge)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.passengerUIN }) |
+            @Html.ActionLink("Details", "Details", new { id = item.passengerUIN }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.passengerUIN })
+        </td>
+    </tr>
+}
+
+</table>

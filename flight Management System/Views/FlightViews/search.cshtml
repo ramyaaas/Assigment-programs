@@ -1,0 +1,84 @@
+@model IEnumerable<FlightReservation.Models.FlightDetail>
+
+@{
+    /**/
+
+
+    Layout = "~/Views/Shared/View.cshtml";
+}
+
+
+<p style="font-size:18px;color:black;font-weight:bold">
+
+    @using (Html.BeginForm("Search", "FlightDetails", FormMethod.Get))
+    {<b style="font-size:18px;color:black;font-weight:bold"> Enter Flight Number</b>
+        @Html.TextBox("search") <input type="submit" value=" Search" />
+    }
+</p>
+<table class="table" style="font-size:18px;color:black;font-weight:bold">
+    <tr style="font-size:20px;color:darkblue;font-weight:bold">
+        <th>
+            @Html.DisplayNameFor(model => model.FlightNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FlightModel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FlightCarrier)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SeatCapacity)
+        </th>
+        <th></th>
+    </tr>
+    @if (Model.Count() == 0)
+    {
+
+        <tr>
+            <td colspan="5" style="font-size:20px;color:red;font-weight:bold">
+                No record found
+            </td>
+        </tr>
+
+    }
+    else
+    {
+        foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FlightNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FlightModel)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FlightCarrier)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SeatCapacity)
+                </td>
+
+            </tr>
+        }
+    }
+
+
+
+</table>
+<br /><br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />

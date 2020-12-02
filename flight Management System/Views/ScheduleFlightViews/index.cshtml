@@ -1,0 +1,69 @@
+@model IEnumerable<FlightReservation.Models.scheduleflight>
+
+@{
+    Layout = "~/Views/Shared/View.cshtml";
+}
+<h2 style="font-size:30px;color:black;font-weight:bold"><b>List of Scheduled Flights</b></h2>
+
+
+<table class="table">
+    <tr style="font-size:20px;color:darkblue;font-weight:bold">
+        <th>
+            @Html.DisplayNameFor(model => model.scheduleId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FlightDetail.FlightNumber)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DepartureTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ArrivalTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalCost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SourceAirport)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DestinationAirport)
+        </th>
+
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr style="font-size:18px;color:black;font-weight:bold">
+        <td>
+            @Html.DisplayFor(modelItem => item.scheduleId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.FlightDetail.FlightNumber)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DepartureTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ArrivalTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TotalCost)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Airport.AirportLocation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Airport1.AirportLocation)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.scheduleId }) |
+           
+            @Html.ActionLink("Delete", "Delete", new { id = item.scheduleId })
+        </td>
+
+    </tr>
+}
+
+</table>
+<br /><br /><br /><br /><br /><br />

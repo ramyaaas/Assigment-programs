@@ -1,0 +1,51 @@
+@model FlightReservation.Models.Registration
+
+
+<h2 style="font-size:30px;color:white;font-weight:bold"><bold>Login</bold></h2>
+<style>
+    body {
+        background-image: url('../../FLIGHT.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+</style>
+@using (Html.BeginForm("WelcomeUser","Home",FormMethod.Post)) 
+{
+    @Html.AntiForgeryToken()
+<body>
+    <div class="form-horizontal ">
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group" style="font-size:20px;color:white;font-weight:bold">
+            @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+
+        <div class="form-group" style="font-size:20px;color:white;font-weight:bold">
+            @Html.LabelFor(model => model.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group" style="font-size:20px;color:black;font-weight:bold">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Login" class="btn btn-default" onclick="Myfuct()" />
+            </div>
+        </div>
+    </div>
+</body>
+}
+<script>
+    function Myfuct() {
+        alert("Your login Successfull");
+    }
+</script>
+<br /><br /><br /><br /><br /><br /><br /><br />

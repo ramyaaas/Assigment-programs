@@ -1,0 +1,67 @@
+@model FlightReservation.Models.scheduleflight
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/View.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>scheduleflight</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DepartureTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DepartureTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ArrivalTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ArrivalTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TotalCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TotalCost)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Airport.AirpotName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Airport.AirpotName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Airport1.AirpotName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Airport1.AirpotName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FlightDetail.FlightModel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FlightDetail.FlightModel)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.scheduleId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

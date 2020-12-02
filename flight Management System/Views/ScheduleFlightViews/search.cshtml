@@ -1,0 +1,80 @@
+@model IEnumerable<FlightReservation.Models.scheduleflight>
+
+@{
+    
+    Layout = "~/Views/Shared/View.cshtml";
+}
+
+
+<p >
+<p style="font-size:25px;color:darkblue;font-weight:bold">
+
+    @using (Html.BeginForm("Search", "scheduleflights", FormMethod.Get))
+    {<b > Enter Flight Number</b>
+        @Html.TextBox("search") <input style="height:20px" type="submit" value=" Search" />
+    }
+</p>
+<table class="table" style="font-size:15px;color:darkblue;font-weight:bold">
+    <tr style="font-size:20px;color:darkblue;font-weight:bold">
+        <th>
+            @Html.DisplayNameFor(model => model.DepartureTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ArrivalTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TotalCost)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SourceAirport)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DestinationAirport)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FlightDetail.FlightNumber)
+        </th>
+        <th></th>
+    </tr>
+    @if (Model.Count() == 0)
+    {
+
+        <tr>
+            <td colspan="5" style="font-size:15px;color:darkblue;font-weight:bold">
+                No record found
+            </td>
+        </tr>
+
+    }
+
+    else
+    {
+        foreach (var item in Model)
+        {
+            <tr style="font-size:18px;color:black;font-weight:bold">
+                <td>
+                    @Html.DisplayFor(modelItem => item.DepartureTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ArrivalTime)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TotalCost)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SourceAirport)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DestinationAirport)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FlightDetail.FlightNumber)
+                </td>
+               
+            </tr>
+        }
+
+    }
+
+</table><br />
+        <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />

@@ -1,0 +1,105 @@
+@model FlightReservation.Models.Booking
+
+@{
+
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+
+
+
+    <hr />
+    @*delete the below contents when the ticket is cancelled*@
+    <dl class="dl-horizontal">
+        <dt style="font-size:20px;color:black;font-weight:bold">
+            @Html.DisplayNameFor(model => model.BookinId)
+        </dt>
+
+        <dd style="font-size:20px;color:darkblue;font-weight:bold">
+            @Html.DisplayFor(model => model.BookinId)
+        </dd>
+        <dt style="font-size:20px;color:black;font-weight:bold">
+            @Html.DisplayNameFor(model => model.UserId)
+        </dt>
+
+        <dd style="font-size:20px;color:darkblue;font-weight:bold">
+            @Html.DisplayFor(model => model.passenger.Registration.Id)
+        </dd>
+        <dt style="font-size:20px;color:black;font-weight:bold">
+            @Html.DisplayNameFor(model => model.passenger.Registration.UserName)
+        </dt>
+
+        <dd style="font-size:20px;color:darkblue;font-weight:bold">
+            @Html.DisplayFor(model => model.passenger.Registration.UserName)
+        </dd>
+
+        <dt style="font-size:20px;color:black;font-weight:bold">
+            @Html.DisplayNameFor(model => model.passenger.Registration.Gender)
+        </dt>
+
+        <dd style="font-size:20px;color:darkblue;font-weight:bold">
+            @Html.DisplayFor(model => model.passenger.Registration.Gender)
+        </dd>
+
+        <dt style="font-size:20px;color:black;font-weight:bold">
+            @Html.DisplayNameFor(model => model.passenger.passengerAge)
+        </dt>
+
+        <dd style="font-size:20px;color:darkblue;font-weight:bold">
+            @Html.DisplayFor(model => model.passenger.passengerAge)
+        </dd>
+        <dt style="font-size:20px;color:black;font-weight:bold">
+            @Html.DisplayNameFor(model => model.passenger.passengerAge)
+        </dt>
+
+        <dd style="font-size:20px;color:darkblue;font-weight:bold">
+            @Html.DisplayFor(model => model.passenger.Luguagge)
+        </dd>
+
+        <dt style="font-size:20px;color:black;font-weight:bold">
+            @Html.DisplayNameFor(model => model.passenger.passengerUIN)
+        </dt>
+
+        <dd style="font-size:20px;color:darkblue;font-weight:bold">
+            @Html.DisplayFor(model => model.passenger.passengerUIN)
+        </dd>
+        <dt style="font-size:20px;color:black;font-weight:bold">
+            @Html.DisplayNameFor(model => model.scheduleflight.scheduleFlightNumber)
+        </dt>
+
+        <dd style="font-size:20px;color:darkblue;font-weight:bold">
+            @Html.DisplayFor(model => model.scheduleflight.scheduleFlightNumber)
+        </dd>
+
+        <dt style="font-size:20px;color:black;font-weight:bold">
+            @Html.DisplayNameFor(model => model.source)
+        </dt>
+
+        <dd style="font-size:20px;color:darkblue;font-weight:bold">
+            @Html.DisplayFor(model => model.source)
+        </dd>
+
+    </dl>
+
+
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Cancel" class="btn btn-default" onclick="Myfunction()"/> |
+           
+        </div>
+    }
+
+</div>
+@*Function to get alert message when the ticket is cancelled*@
+<script>
+    function Myfunction() {
+        alert("Your ticket is cancelled");
+    }
+</script>
